@@ -18,14 +18,14 @@
 - Die Startseite enthält ein Login- oder Registrierungsfeld sowie den Spielnamen.
 - Der Benutzer kann sich anmelden oder registrieren.
 
-[Erster Screen](./src/assets/01-Screen.png "01-Screen.png")
+![Erster Screen](./src/assets/01-Screen.png "01-Screen.png")
 
 ### Login- oder Registrierungsprozess
 
 - Der Benutzer gibt seine Anmeldedaten ein oder erstellt ein neues Konto.
 - Der Benutzer wird auf die Startseite weitergeleitet, wenn die Anmeldung oder Registrierung erfolgreich ist.
 
-[Nach dem Einloggen](./src/assets/02-Screen_Eingeloggt.png "02-Screen_Eingeloggt.png")
+![Nach dem Einloggen](./src/assets/02-Screen_Eingeloggt.png "02-Screen_Eingeloggt.png")
 
 ### Startbildschirm
 
@@ -46,7 +46,7 @@
 - Der Buchstabe wird in einem der leeren Felder eingefügt.
 - Das Rätsel wird aktualisiert.
 - Der Benutzer wiederholt diese Schritte, bis er das Wort vollständig gelöst hat.
-  [Game Screen](./src/assets/03-Screen_Game.png.png "03-Screen_Eingeloggt.png")
+  ![Game Screen](./src/assets/03-Screen_Game.png.png "03-Screen_Eingeloggt.png")
 
 ### Punkte
 
