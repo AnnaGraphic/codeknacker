@@ -46,6 +46,7 @@
 - Der Buchstabe wird in einem der leeren Felder eingefügt.
 - Das Rätsel wird aktualisiert.
 - Der Benutzer wiederholt diese Schritte, bis er das Wort vollständig gelöst hat.
+
   ![Game Screen](./src/assets/03-Screen_Game.png.png "03-Screen_Eingeloggt.png")
 
 ### Punkte
