@@ -4,9 +4,13 @@
 
 - [ ] game logic
 - [ ] components
+  - [🐼] Header
   - [ ] login
   - [ ] profile
   - [ ] game
+- [🐼] Browser Router
+- [🐼] index.css
+Später
 - [🐼] database
 - [🐼] routing
 
