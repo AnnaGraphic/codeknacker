@@ -5,18 +5,19 @@
 - [ ] game logic
 - [ ] components
   - [🐼] Header
+    - [ ] Navigation (e.g. Dropdon)
   - [ ] Login
   - [ ] Game
-  - [ ] Profile
+  - [🐼 ] Profile
   - [ ] Leaderboard
 - [🐼] Browser Router
 - [🐼] index.css
   - [ ] find colors
   - [ ] find font
-Später
-- [🐼] database
 - [x] routing
   - [🐼] add fallback-route
+Später
+- [🐼] database
 
 ## Spielablaufplan
 
