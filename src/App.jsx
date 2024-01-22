@@ -9,6 +9,8 @@ import {
 } from "react-router-dom";
 import { Layout } from "./components/Layout/Layout.jsx";
 import  Login  from "./components/authentication/Login";
+import { Leaderboard } from "./components/Leaderboard/Leaderboard.jsx";
+import { Game } from "./components/Game/Game.jsx";
 
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -31,9 +33,13 @@ function App() {
           element: <div />,
         },
         {
-          path: "login",
-          element: isLoggedIn ? <Navigate to="/" /> : <Login />,
+          path: 'game',
+          element: isLoggedIn ? <Game /> : <Login/>,
         },
+        {
+          path: 'leaderboard',
+          element: <Leaderboard />,
+        }
       ],
     },
   ]);
