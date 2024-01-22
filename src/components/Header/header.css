@@ -6,10 +6,10 @@
   align-items: center;
   background-color: var(--main-color);
   color: var(--light);
-  padding: 10px 20px;
+  padding: 0.6em 1em;
 }
 
-.header_logo {
+.headerLogo {
   font-size: 24px;
   font-weight: bold;
 }
@@ -19,17 +19,22 @@
   font-weight: bold;
 }
 
+.headerLogo {
+  min-width: 2em;
+  min-height: 2em;
+}
+
 /* Mobile First Media Query */
 @media only screen and (min-width: 600px) {
   .header {
-    padding: 15px 40px;
+    padding: 1em 2em;
   }
 
-  .header_logo {
+  .headerLogo {
     font-size: 28px;
   }
 
-  .header_title {
+  .headerTitle {
     font-size: 24px;
   }
 }
