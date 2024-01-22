@@ -27,9 +27,13 @@ function App() {
           element: <Start />,
         },
         {
-          path: 'login',
-          element: isLoggedIn ? <Navigate to="/" /> : <Login/>,
+          path: 'game',
+          element: isLoggedIn ? <Game /> : <Login/>,
         },
+        {
+          path: 'leaderboard',
+          element: <Leaderboard />,
+        }
       ],
     },
   ]);
