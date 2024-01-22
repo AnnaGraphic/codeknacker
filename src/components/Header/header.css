@@ -1,0 +1,35 @@
+@import '/src/index.css';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--main-color);
+  color: var(--light);
+  padding: 10px 20px;
+}
+
+.header_logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.header_title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Mobile First Media Query */
+@media only screen and (min-width: 600px) {
+  .header {
+    padding: 15px 40px;
+  }
+
+  .header_logo {
+    font-size: 28px;
+  }
+
+  .header_title {
+    font-size: 24px;
+  }
+}

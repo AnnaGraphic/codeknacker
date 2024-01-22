@@ -4,11 +4,19 @@
 
 - [M] game logic
 - [ ] components
-  - [ ] login
-  - [ ] profile
-  - [ ] game
+  - [🐼] Header
+  - [ ] Login
+  - [ ] Game
+  - [ ] Profile
+  - [ ] Leaderboard
+- [🐼] Browser Router
+- [🐼] index.css
+  - [ ] find colors
+  - [ ] find font
+Später
 - [🐼] database
-- [🐼] routing
+- [x] routing
+  - [🐼] add fallback-route
 
 ## Spielablaufplan
 
