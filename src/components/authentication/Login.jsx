@@ -1,34 +1,74 @@
-import { useState } from "react";
+import { useReducer } from "react";
 import { LoginUser } from "./LoginUser";
 
+function LoginReducer(state, action) {
+  switch (action.type) {
+    case "field":
+      return {
+        ...state,
+        [action.field]: action.value,
+      };
+
+    case "login":
+      return {
+        ...state,
+        isLoading: true,
+        isLoggedIn: false,
+        error: "",
+      };
+
+    case "success":
+      return {
+        ...state,
+        isLoggedIn: true,
+      };
+
+    case "error":
+      return {
+        ...state,
+        [action.field]: action.value,
+      };
+
+    case "logout":
+      return {
+        ...state,
+        isLoggedIn: false,
+        username: "",
+        password: "",
+      };
+
+    default:
+      break;
+  }
+
+  return state;
+}
+
+const initialState = {
+  username: "",
+  password: "",
+  isLoading: false,
+  isLoggedIn: false,
+  error: "",
+};
+
 const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [error, setError] = useState("");
+  const [state, dispatch] = useReducer(LoginReducer, initialState);
+
+  const { username, password, isLoading, isLoggedIn, error } = state;
 
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    setIsLoading(true);
-    setError("");
+    dispatch({ type: "login" });
 
     try {
       await LoginUser({ username, password });
-      setIsLoggedIn(true);
+      dispatch({ type: "success" });
     } catch (error) {
+      dispatch({ type: "error" });
       setError("Invalid username or password. Please try again.");
     }
-    setIsLoading(false);
-  };
-
-  const handleUsernameChange = (e) => {
-    setUsername(e.currentTarget.value);
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.currentTarget.value);
   };
 
   return (
@@ -36,8 +76,11 @@ const Login = () => {
       <div>
         {isLoggedIn ? (
           <>
-            <h1>Hello {username}!</h1>{" "}
-            <button onClick={() => setIsLoggedIn(false)}>Log out</button>
+            <h1>Hello {username} !</h1>
+            {""}
+            <button onClick={() => dispatch({ type: "logout" })}>
+              Log out
+            </button>
           </>
         ) : (
           <form className="form" onSubmit={onSubmit}>
@@ -46,14 +89,26 @@ const Login = () => {
               type="text"
               placeholder="username"
               value={username}
-              onChange={handleUsernameChange}
+              onChange={(e) =>
+                dispatch({
+                  type: "field",
+                  field: "username",
+                  value: e.currentTarget.value,
+                })
+              }
             />
             <input
               type="password"
               placeholder="password"
               autoComplete="new-password"
               value={password}
-              onChange={handlePasswordChange}
+              onChange={(e) =>
+                dispatch({
+                  type: "field",
+                  field: "password",
+                  value: e.currentTarget.value,
+                })
+              }
             />
             <button className="submit" type="submit" disabled={isLoading}>
               {isLoading ? "Logging in..." : "Log in"}
