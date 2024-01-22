@@ -3,8 +3,8 @@ import './header.css';
 export function Header () {
   return (
     <header className="header">
-    <div className="header_logo">Logo</div>
-    <div className="header_title">Codeknacker</div>
+    <div className="headerLogo"><img src="/public/logo.svg" alt="logo" /></div>
+    <div className="headerTitle">Codeknacker</div>
   </header>
   )
 }
