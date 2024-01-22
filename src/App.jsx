@@ -1,12 +1,18 @@
-import './App.css'
-import{ useState } from 'react';
-import { createBrowserRouter, RouterProvider, Navigate, Routes, Route } from "react-router-dom";
-import { Layout } from './components/Layout/Layout.jsx';
-import { Start } from './components/TESTS/Start.jsx';
-import { Login } from './components/TESTS/Login.jsx';
+import "./App.css";
+import { useState } from "react";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+  Routes,
+  Route,
+} from "react-router-dom";
+import { Layout } from "./components/Layout/Layout.jsx";
+import  Login  from "./components/authentication/Login";
+import { Leaderboard } from "./components/Leaderboard/Leaderboard.jsx";
+import { Game } from "./components/Game/Game.jsx";
 
 function App() {
-
   const [isLoggedIn, setLoggedIn] = useState(false);
 
   const handleLogin = () => {
@@ -19,12 +25,12 @@ function App() {
 
   const router = createBrowserRouter([
     {
-      path: '/',
+      path: "/",
       element: <Layout />,
       children: [
         {
           index: true,
-          element: <Start />,
+          element: <div />,
         },
         {
           path: 'game',
@@ -38,9 +44,7 @@ function App() {
     },
   ]);
 
-  return (
-      <RouterProvider router={router} fallbackElement={<p>loading..</p>} />
-  )
+  return <RouterProvider router={router} fallbackElement={<p>loading..</p>} />;
 }
 
-export default App
+export default App;
