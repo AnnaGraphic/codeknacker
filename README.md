@@ -2,7 +2,7 @@
 
 ## TODOs
 
-- [ ] game logic
+- [M] game logic
 - [ ] components
   - [ ] login
   - [ ] profile
@@ -61,7 +61,7 @@
 
 - Der Benutzer kann das Spiel jederzeit beenden.
 
-### Hilfe
+### ( Hilfe )
 
 - Wenn der Benutzer nicht weiterkommt, kann er auf die "Hilfe"-Schaltfläche klicken.
 - Die "Hilfe"-Schaltfläche zeigt einen Buchstaben im Rätsel an.
