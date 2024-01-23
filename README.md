@@ -8,18 +8,21 @@
   - [X] Header
     - [X] Navigation (e.g. Dropdon)
   - [X] Login
-  - [ ] Game
-  - [🐼 ] Profile
-  - [ ] Leaderboard
+  - [ M ] Game
+  - [X] Profile
+    - [ ] change dummy data to userContext
+  - [X] Leaderboard
+      - [ ] replace dummy data
 - [🐼] Browser Router
 - [🐼] index.css
   - [ E ] find colors
   - [ E ] find font
 - [x] routing
-  - [🐼] add fallback-route
+  - [X] add fallback-route
   - [ ] after login: go to game
 Später
 - [🐼] database
+- [ ] deployment
 
 ## Spielablaufplan
 
