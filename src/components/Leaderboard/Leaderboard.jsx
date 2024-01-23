@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './leaderboard.css'
 
 export function Leaderboard() {
   const [leaderboardData, setLeaderboardData] = useState([
@@ -7,7 +8,7 @@ export function Leaderboard() {
   ]);
 
   return (
-    <div>
+    <div className='leaderboardContainer'>
       <h2>Leaderboard</h2>
       <table>
         <thead>
