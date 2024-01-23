@@ -1,3 +1,5 @@
+@import '/src/index.css';
+
 .login {
   display: flex;
   min-height: 100%;
@@ -22,7 +24,7 @@ width: 100%;
 max-width: 25rem;
 margin: auto;
 padding: 1.25rem;
-background-color: #f0f9ff;
+background-color: var(--light);
 border-radius: 0.3125rem;
 box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.2);
 }
@@ -72,7 +74,7 @@ button{
     padding: 0.5rem;
     font-size: 1rem;
     text-align: center;
-    background-color: #f4009e;
+    background-color: var(--main-color);
     color: white;
     cursor: pointer;
 }
