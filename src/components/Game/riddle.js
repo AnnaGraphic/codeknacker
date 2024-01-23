@@ -1,8 +1,27 @@
+// riddle.js
+const generateUniqueKeyword = (solutions) => {
+  // Beispiel für ein Keyword aus den Solution-Wörtern
+  const keyword = [...new Set(solutions.join(""))].sort().join("");
+  return keyword;
+};
+
+const assignLetterNumber = (usedLetters, letter) => {
+  // Wenn der Buchstabe noch nicht im Objekt vorhanden ist, füge ihn hinzu
+  if (!usedLetters.hasOwnProperty(letter)) {
+    // Generiere eine zufällige Nummer (in einem festgelegten Bereich)
+    const randomNumber = Math.floor(Math.random() * 100) + 1; // Beispiel: Zufällige Zahl zwischen 1 und 100
+    // Speichere die Nummer für den Buchstaben im Objekt
+    usedLetters[letter] = randomNumber;
+  }
+  // Gib die zugeordnete Nummer zurück
+  return usedLetters[letter];
+};
+
 const riddles = [
   {
     level: 1,
     word: "HAUS",
-    keyword: "HAUS", // Eindeutige Buchstaben: H, A, U, S
+    usedLetters: {}, // Objekt zur Speicherung der verwendeten Buchstaben und ihrer Nummern
     puzzles: [
       {
         question: "Woraus besteht ein Baum?",
@@ -35,13 +54,10 @@ const riddles = [
       // Weitere Rätsel für Level 1
     ],
   },
-  // Weitere Level hinzufügen
+  // Weitere Level können hier hinzugefügt werden
 ];
 
-// Beispiel für ein Keyword aus den Solution-Wörtern
-const exampleSolutions = ["Auto", "Küche"];
-const exampleKeyword = [...new Set(exampleSolutions.join(""))].sort().join("");
+// Beispielaufrufe für die Funktionen
+console.log(generateUniqueKeyword(["Auto", "Küche"])); // Gibt das Beispiel-Keyword zurück
 
-console.log("Beispiel-Keyword:", exampleKeyword);
-
-export default riddles;
+export { riddles, assignLetterNumber, generateUniqueKeyword };
