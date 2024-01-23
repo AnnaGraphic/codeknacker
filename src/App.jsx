@@ -45,6 +45,10 @@ function App() {
           path: `profile`,
           element: <Profile />,
         },
+        {
+          path: "*",
+          element: <div style={{ textAlign: 'center', fontSize: '2em', }}>404</div>
+        }
       ],
     },
   ]);
