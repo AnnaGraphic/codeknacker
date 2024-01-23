@@ -100,6 +100,7 @@ const Login = () => {
             <input
               type="text"
               placeholder=""
+              id="username"
               value={username}
               onChange={(e) =>
                 dispatch({
@@ -113,6 +114,7 @@ const Login = () => {
             <input
               type="password"
               placeholder=""
+              id="password"
               autoComplete="new-password"
               value={password}
               onChange={(e) =>
