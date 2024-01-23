@@ -26,15 +26,21 @@ function LoginReducer(state, action) {
     case "error":
       return {
         ...state,
+        isLoading: false,
+        error:{
+          ...state.error,
         [action.field]: action.value,
+        }
       };
 
     case "logout":
       return {
         ...state,
+        isLoading: false,
         isLoggedIn: false,
         username: "",
         password: "",
+        error: "",
       };
 
     default:
@@ -66,9 +72,13 @@ const Login = () => {
       await LoginUser({ username, password });
       dispatch({ type: "success" });
     } catch (error) {
-      dispatch({ type: "error" });
-      setError("Invalid username or password. Please try again.");
-    }
+      dispatch({
+        type: "error",
+        field: "general",
+        value: "Invalid username or password. Please try again.",
+      });
+    
+  }
   };
 
   return (
@@ -84,7 +94,7 @@ const Login = () => {
           </>
         ) : (
           <form className="form" onSubmit={onSubmit}>
-            {error && <p className="error">{error}</p>}
+            {error && error.general && <p className="error">{error.general}</p>}
             <input
               type="text"
               placeholder="username"
