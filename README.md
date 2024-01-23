@@ -2,7 +2,7 @@
 
 ## TODOs
 
-- [ ] game logic
+- [ M ] game logic
 - [ ] components
   - [🐼] Header
     - [ ] Navigation (e.g. Dropdon)
