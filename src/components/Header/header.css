@@ -24,6 +24,27 @@
   min-height: 2em;
 }
 
+/* ----- dropdown -------*/
+.dropdown {
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+  right: 0;
+  text-align: right;
+}
+
+.menu a {
+  display: block;
+  background-color: var(--main-color);
+  padding: 0.2em
+}
+
+.menu a:hover {
+  background-color: var(--main-color-darker);
+}
+
 /* Mobile First Media Query */
 @media only screen and (min-width: 600px) {
   .header {
