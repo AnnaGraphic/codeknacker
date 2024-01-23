@@ -1,5 +1,6 @@
 import { useReducer } from "react";
 import { LoginUser } from "./LoginUser";
+import "./Login.css";
 
 function LoginReducer(state, action) {
   switch (action.type) {
@@ -27,10 +28,10 @@ function LoginReducer(state, action) {
       return {
         ...state,
         isLoading: false,
-        error:{
+        error: {
           ...state.error,
-        [action.field]: action.value,
-        }
+          [action.field]: action.value,
+        },
       };
 
     case "logout":
@@ -77,12 +78,11 @@ const Login = () => {
         field: "general",
         value: "Invalid username or password. Please try again.",
       });
-    
-  }
+    }
   };
 
   return (
-    <div className="App">
+    <div className="login">
       <div>
         {isLoggedIn ? (
           <>
@@ -94,10 +94,12 @@ const Login = () => {
           </>
         ) : (
           <form className="form" onSubmit={onSubmit}>
+            <h1>Sign in to your account</h1>
             {error && error.general && <p className="error">{error.general}</p>}
+            <label htmlFor="username">Username</label>
             <input
               type="text"
-              placeholder="username"
+              placeholder=""
               value={username}
               onChange={(e) =>
                 dispatch({
@@ -107,9 +109,10 @@ const Login = () => {
                 })
               }
             />
+            <label htmlFor="password">Password</label>
             <input
               type="password"
-              placeholder="password"
+              placeholder=""
               autoComplete="new-password"
               value={password}
               onChange={(e) =>
