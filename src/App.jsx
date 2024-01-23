@@ -7,10 +7,11 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import { Layout } from "./components/Layout/Layout.jsx";
-import Login from "./components/authentication/Login";
-import { Leaderboard } from "./components/Leaderboard/Leaderboard.jsx";
 import Game from "./components/Game/Game";
+import { Layout } from "./components/Layout/Layout.jsx";
+import { Leaderboard } from "./components/Leaderboard/Leaderboard.jsx";
+import Login from "./components/authentication/Login";
+import { Profile } from "./components/Profile/Profile.jsx"; 
 
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(true);
@@ -39,6 +40,10 @@ function App() {
         {
           path: "leaderboard",
           element: <Leaderboard />,
+        },
+        {
+          path: `profile`,
+          element: <Profile />,
         },
       ],
     },

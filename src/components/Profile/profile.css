@@ -1,0 +1,43 @@
+.profile {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.profilePic {
+  width: 50%;
+  padding: 1em;
+}
+
+.profilePic img {
+  max-width: 100%;
+  border-radius: 50%;
+}
+
+.profileInfo {
+  margin-top: 20px;
+}
+
+.profileInfo p {
+  margin: 10px 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .profile {
+    padding: 10px;
+  }
+
+  .profileInfo {
+    margin-top: 10px;
+  }
+
+  .profileInfo p {
+    font-size: 14px;
+  }
+
+  .profileInfo input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
