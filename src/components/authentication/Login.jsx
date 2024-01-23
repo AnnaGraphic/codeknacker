@@ -1,9 +1,8 @@
-import { useReducer } from "react";
 import { LoginUser } from "./LoginUser";
 import { useUserContext } from "../../contexts/UserContext";
 
 const Login = () => {
-  const { userState } = useUserContext();
+  const { userState, dispatch } = useUserContext();
   const { username, password, isLoading, isLoggedIn, error } = userState;
 
   const onSubmit = async (e) => {
