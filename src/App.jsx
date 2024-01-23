@@ -13,7 +13,7 @@ import { Leaderboard } from "./components/Leaderboard/Leaderboard.jsx";
 import Game from "./components/Game/Game";
 
 function App() {
-  const [isLoggedIn, setLoggedIn] = useState(true);
+  const [isLoggedIn, setLoggedIn] = useState();
 
   const handleLogin = () => {
     setLoggedIn(true);
