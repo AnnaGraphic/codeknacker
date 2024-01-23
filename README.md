@@ -2,21 +2,23 @@
 
 ## TODOs
 
-- [ ] game logic
+
+- [ M ] game logic
 - [ ] components
   - [🐼] Header
+    - [ ] Navigation (e.g. Dropdon)
   - [ ] Login
   - [ ] Game
-  - [ ] Profile
+  - [🐼 ] Profile
   - [ ] Leaderboard
 - [🐼] Browser Router
 - [🐼] index.css
   - [ ] find colors
   - [ ] find font
-Später
-- [🐼] database
 - [x] routing
   - [🐼] add fallback-route
+Später
+- [🐼] database
 
 ## Spielablaufplan
 
@@ -69,7 +71,7 @@ Später
 
 - Der Benutzer kann das Spiel jederzeit beenden.
 
-### Hilfe
+### ( Hilfe )
 
 - Wenn der Benutzer nicht weiterkommt, kann er auf die "Hilfe"-Schaltfläche klicken.
 - Die "Hilfe"-Schaltfläche zeigt einen Buchstaben im Rätsel an.

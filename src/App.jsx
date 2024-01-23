@@ -8,12 +8,12 @@ import {
   Route,
 } from "react-router-dom";
 import { Layout } from "./components/Layout/Layout.jsx";
-import  Login  from "./components/authentication/Login";
+import Login from "./components/authentication/Login";
 import { Leaderboard } from "./components/Leaderboard/Leaderboard.jsx";
-import { Game } from "./components/Game/Game.jsx";
+import Game from "./components/Game/Game";
 
 function App() {
-  const [isLoggedIn, setLoggedIn] = useState(false);
+  const [isLoggedIn, setLoggedIn] = useState(true);
 
   const handleLogin = () => {
     setLoggedIn(true);
@@ -33,13 +33,13 @@ function App() {
           element: <div />,
         },
         {
-          path: 'game',
-          element: isLoggedIn ? <Game /> : <Login/>,
+          path: "game",
+          element: isLoggedIn ? <Game /> : <Login />,
         },
         {
-          path: 'leaderboard',
+          path: "leaderboard",
           element: <Leaderboard />,
-        }
+        },
       ],
     },
   ]);
