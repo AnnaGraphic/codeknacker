@@ -2,6 +2,7 @@
 
 ## TODOs
 
+
 - [ M ] game logic
 - [ ] components
   - [🐼] Header
@@ -70,7 +71,7 @@ Später
 
 - Der Benutzer kann das Spiel jederzeit beenden.
 
-### Hilfe
+### ( Hilfe )
 
 - Wenn der Benutzer nicht weiterkommt, kann er auf die "Hilfe"-Schaltfläche klicken.
 - Die "Hilfe"-Schaltfläche zeigt einen Buchstaben im Rätsel an.
