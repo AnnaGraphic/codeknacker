@@ -45,7 +45,12 @@ function loginReducer(state, action) {
         password: "",
         error: "",
       };
-
+    case "setUserProfile":
+      return {
+        ...state,
+        username: action.value.username,
+        password: action.value.password,
+      }
     default:
       break;
   }
@@ -59,6 +64,7 @@ const initialState = {
   isLoading: false,
   isLoggedIn: false,
   error: "",
+  score: 0,
 };
 
 const UserContextProvider = ({ children }) => {
