@@ -1,5 +1,63 @@
 import { LoginUser } from "./LoginUser";
 import { useUserContext } from "../../contexts/UserContext";
+import "./Login.css";
+
+function LoginReducer(state, action) {
+  switch (action.type) {
+    case "field":
+      return {
+        ...state,
+        [action.field]: action.value,
+      };
+
+    case "login":
+      return {
+        ...state,
+        isLoading: true,
+        isLoggedIn: false,
+        error: "",
+      };
+
+    case "success":
+      return {
+        ...state,
+        isLoggedIn: true,
+      };
+
+    case "error":
+      return {
+        ...state,
+        isLoading: false,
+        error: {
+          ...state.error,
+          [action.field]: action.value,
+        },
+      };
+
+    case "logout":
+      return {
+        ...state,
+        isLoading: false,
+        isLoggedIn: false,
+        username: "",
+        password: "",
+        error: "",
+      };
+
+    default:
+      break;
+  }
+
+  return state;
+}
+
+const initialState = {
+  username: "",
+  password: "",
+  isLoading: false,
+  isLoggedIn: false,
+  error: "",
+};
 
 const Login = () => {
   const { userState, dispatch } = useUserContext();
@@ -23,7 +81,7 @@ const Login = () => {
   };
 
   return (
-    <div className="App">
+    <div className="login">
       <div>
         {isLoggedIn ? (
           <>
@@ -35,10 +93,13 @@ const Login = () => {
           </>
         ) : (
           <form className="form" onSubmit={onSubmit}>
+            <h1>Sign in to your account</h1>
             {error && error.general && <p className="error">{error.general}</p>}
+            <label htmlFor="username">Username</label>
             <input
               type="text"
-              placeholder="username"
+              placeholder=""
+              id="username"
               value={username}
               onChange={(e) =>
                 dispatch({
@@ -48,9 +109,11 @@ const Login = () => {
                 })
               }
             />
+            <label htmlFor="password">Password</label>
             <input
               type="password"
-              placeholder="password"
+              placeholder=""
+              id="password"
               autoComplete="new-password"
               value={password}
               onChange={(e) =>
