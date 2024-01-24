@@ -37,7 +37,7 @@ function App() {
         },
         {
           path: `profile`,
-          element: <Profile />,
+          element: isLoggedIn ? <Profile /> : <Login />,
         },
         {
           path: "*",
