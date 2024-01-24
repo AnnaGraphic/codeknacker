@@ -1,21 +1,4 @@
 // riddle.js
-const generateUniqueKeyword = (solutions) => {
-  // Beispiel für ein Keyword aus den Solution-Wörtern
-  const keyword = [...new Set(solutions.join(""))].sort().join("");
-  return keyword;
-};
-
-const assignLetterNumber = (usedLetters, letter) => {
-  // Wenn der Buchstabe noch nicht im Objekt vorhanden ist, füge ihn hinzu
-  if (!usedLetters.hasOwnProperty(letter)) {
-    // Generiere eine zufällige Nummer (in einem festgelegten Bereich)
-    const randomNumber = Math.floor(Math.random() * 100) + 1; // Beispiel: Zufällige Zahl zwischen 1 und 100
-    // Speichere die Nummer für den Buchstaben im Objekt
-    usedLetters[letter] = randomNumber;
-  }
-  // Gib die zugeordnete Nummer zurück
-  return usedLetters[letter];
-};
 
 const riddles = [
   {
@@ -51,6 +34,10 @@ const riddles = [
         question: "Was hat vier Räder und fährt?",
         solution: "Auto",
       },
+      {
+        question: "Welcher Tag kommt vor Montag?",
+        solution: "Sonntag",
+      },
       // Weitere Rätsel für Level 1
     ],
   },
@@ -58,6 +45,5 @@ const riddles = [
 ];
 
 // Beispielaufrufe für die Funktionen
-console.log(generateUniqueKeyword(["Auto", "Küche"])); // Gibt das Beispiel-Keyword zurück
 
-export { riddles, assignLetterNumber, generateUniqueKeyword };
+export { riddles };

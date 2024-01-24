@@ -1,0 +1,40 @@
+@import "/src/index.css";
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Afacad:wght@500&family=Roboto+Mono&display=swap");
+
+.start {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: var(--light);
+}
+
+h1 {
+  font-size: 7em;
+  font-family: "Afacad", sans-serif;
+  color: var(--light);
+  text-shadow: 3px 3px 0 #4074b5, 3px -3px 0 #4074b5, -3px 3px 0 #4074b5,
+    -3px -3px 0 #4074b5, 3px 3px 0 #4074b5, 3px 3px 0 #4074b5,
+    -3px 0px 0 #4074b5, 0px -3px 0 #4074b5;
+  color: var(--light);
+  margin: 0;
+  margin-top: 1.5em;
+  line-height: 0.5em;
+}
+
+h3 {
+  font-family: "Roboto Mono", monospace;
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0;
+  line-height: 2.2em;
+}
+
+.startlogo {
+  width: 15em;
+  height: 15em;
+  border: 0.01em solid #ccc;
+  border-radius: 0.5em;
+  background-color: #5697d1;
+}

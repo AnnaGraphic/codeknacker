@@ -13,6 +13,7 @@ import { Leaderboard } from "./components/Leaderboard/Leaderboard.jsx";
 import Login from "./components/authentication/Login";
 import { Profile } from "./components/Profile/Profile.jsx";
 import { useUserContext } from "./contexts/UserContext.jsx";
+import Start from "./components/Start";
 
 function App() {
   const { userState } = useUserContext();
@@ -25,7 +26,7 @@ function App() {
       children: [
         {
           index: true,
-          element: <div />,
+          element: <Start />,
         },
         {
           path: "game",
