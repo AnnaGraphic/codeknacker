@@ -1,5 +1,5 @@
 export const dropdownLinks = [
-  {path: '/game'},
-  {path: '/leaderboard'},
-  {path: '/profile'},
+  {path: 'game'},
+  {path: 'leaderboard'},
+  {path: 'profile'},
 ]
