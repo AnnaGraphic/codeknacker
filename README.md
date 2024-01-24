@@ -9,8 +9,11 @@
     - [X] Navigation (e.g. Dropdon)
   - [X] Login
   - [ M ] Game
+    - [ ] update score in userContext
   - [X] Profile
-    - [ ] change dummy data to userContext
+    - [X] change dummy data to userContext
+    - [ ] upload function for profile pic
+    - [ ] change username to display name
   - [X] Leaderboard
       - [ ] replace dummy data
 - [🐼] Browser Router
@@ -20,6 +23,8 @@
 - [x] routing
   - [X] add fallback-route
   - [ ] after login: go to game
+- [ ] contexts:
+  - [ ] change loginReducer to userReducer
 Später
 - [🐼] database
 - [ ] deployment
