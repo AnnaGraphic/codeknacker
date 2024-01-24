@@ -1,6 +1,6 @@
 import { useReducer } from "react";
 import { LoginUser } from "./LoginUser";
-import "./Login.css";
+import "./login.css";
 
 function LoginReducer(state, action) {
   switch (action.type) {
