@@ -2,9 +2,11 @@
   --main-color: #52679b;
   --main-color-darker: #004b96;
   --secondary-color: #f8931d;
-  --light: #ffe1e1;
+  --light: #fbf6b0;
   --dark: #000000;
+  --custom-color: #fcc20d;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -20,7 +22,7 @@ body {
 
 main {
   flex: 1;
-  background-color: var(--light);
+  background-color: var(--main-color-darker);
   /*temp rule: */
   height: 100vh;
 }
