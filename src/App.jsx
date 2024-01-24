@@ -11,9 +11,12 @@ import Game from "./components/Game/Game";
 import { Layout } from "./components/Layout/Layout.jsx";
 import { Leaderboard } from "./components/Leaderboard/Leaderboard.jsx";
 import Login from "./components/authentication/Login";
-import { Profile } from "./components/Profile/Profile.jsx"; 
+import { Profile } from "./components/Profile/Profile.jsx";
+import { useUserContext } from "./contexts/UserContext.jsx";
 
 function App() {
+  const { userState } = useUserContext();
+  const { isLoggedIn } = userState;
 
   const router = createBrowserRouter([
     {
@@ -38,8 +41,10 @@ function App() {
         },
         {
           path: "*",
-          element: <div style={{ textAlign: 'center', fontSize: '2em', }}>404</div>
-        }
+          element: (
+            <div style={{ textAlign: "center", fontSize: "2em" }}>404</div>
+          ),
+        },
       ],
     },
   ]);
