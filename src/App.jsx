@@ -14,15 +14,6 @@ import Login from "./components/authentication/Login";
 import { Profile } from "./components/Profile/Profile.jsx"; 
 
 function App() {
-  const [isLoggedIn, setLoggedIn] = useState();
-
-  const handleLogin = () => {
-    setLoggedIn(true);
-  };
-
-  const handleLogout = () => {
-    setLoggedIn(false);
-  };
 
   const router = createBrowserRouter([
     {
