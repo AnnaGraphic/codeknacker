@@ -12,17 +12,11 @@ import { Layout } from "./components/Layout/Layout.jsx";
 import { Leaderboard } from "./components/Leaderboard/Leaderboard.jsx";
 import Login from "./components/authentication/Login";
 import { Profile } from "./components/Profile/Profile.jsx"; 
+import { useUserContext } from "./contexts/UserContext.jsx";
 
 function App() {
-  const [isLoggedIn, setLoggedIn] = useState();
-
-  const handleLogin = () => {
-    setLoggedIn(true);
-  };
-
-  const handleLogout = () => {
-    setLoggedIn(false);
-  };
+  const { userState } = useUserContext();
+  const { isLoggedIn } = userState;
 
   const router = createBrowserRouter([
     {
