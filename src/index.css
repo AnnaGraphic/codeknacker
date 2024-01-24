@@ -1,7 +1,7 @@
 :root {
-  --main-color: #ff8a4b;
-  --main-color-darker: #e87341;
-  --secondary-color: #f4009e;
+  --main-color: #52679b;
+  --main-color-darker: #004b96;
+  --secondary-color: #f8931d;
   --light: #ffe1e1;
   --dark: #000000;
 }
@@ -12,7 +12,7 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
