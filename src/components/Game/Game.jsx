@@ -1,72 +1,45 @@
 // Game.jsx
 import React, { useState, useEffect } from "react";
-import FieldForRiddle from "./field-for-riddle";
-import { riddles } from "./riddle";
+import FieldForRiddle from "./field-for-riddle.jsx";
 
 const Game = () => {
   const [currentLevel, setCurrentLevel] = useState(0);
-  const [currentWord, setCurrentWord] = useState("");
-  const [revealedLetters, setRevealedLetters] = useState([]);
-  const [score, setScore] = useState(0);
-
-  const handleNextLevel = () => {
-    setCurrentLevel((prevLevel) => prevLevel + 1);
-    setRevealedLetters([]);
-    // Setze das aktuelle Wort für das neue Level
-    setCurrentWord(riddles[currentLevel + 1]?.word || "");
-  };
 
   const renderLetterButtons = () => {
     const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZßÜÄÖ";
-    return alphabet.split("").map((letter) => (
-      <button key={letter} onClick={() => revealLetter(letter)}>
-        Guess {letter}
-      </button>
+    const rows = [];
+
+    for (let i = 0; i < alphabet.length; i += 7) {
+      const row = alphabet.slice(i, i + 7);
+      rows.push(row);
+    }
+
+    return rows.map((row, rowIndex) => (
+      <div key={rowIndex}>
+        {row.split("").map((letter) => (
+          <button key={letter}>Guess {letter}</button>
+        ))}
+      </div>
     ));
   };
 
-  const revealLetter = (letter) => {
-    if (!revealedLetters.includes(letter)) {
-      // Füge den Buchstaben nur hinzu, wenn er noch nicht aufgedeckt wurde
-      // Überprüfe auch, ob der Buchstabe im Lösungswort vorhanden ist
-      if (currentWord.includes(letter)) {
-        setRevealedLetters((prevLetters) => [...prevLetters, letter]);
-        // Hier könntest du auch die Punktzahl erhöhen oder weitere Aktionen durchführen.
-      }
-    }
+  const handleNextLevel = () => {
+    setCurrentLevel((prevLevel) => prevLevel + 1);
   };
 
   useEffect(() => {
-    // Überprüfe, ob das Wort komplett geraten wurde
-    if (
-      revealedLetters.length === currentWord.length &&
-      currentLevel < riddles.length - 1
-    ) {
-      // Spieler hat das Wort geraten und es gibt mehr Level
-      handleNextLevel();
-    } else if (revealedLetters.length === currentWord.length) {
-      // Spieler hat das Wort im letzten Level geraten
-      // Du kannst hier zusätzliche Logik hinzufügen
-    }
-  }, [currentWord, currentLevel, revealedLetters]);
-
-  useEffect(() => {
-    // Setze das Anfangswort für das erste Level
-    setCurrentWord(riddles[currentLevel]?.word || "");
-  }, [currentLevel]);
+    setCurrentLevel(0); // Setze das Anfangslevel
+  }, []);
 
   return (
     <div>
       <h1>Game Component</h1>
-      <p>Score: {score}</p>
+      <p>Score: 0</p>
       {/* Hier wird die FieldForRiddle-Komponente platziert */}
-      <FieldForRiddle
-        currentLevel={currentLevel}
-        revealedLetters={revealedLetters}
-      />
+      <FieldForRiddle currentLevel={currentLevel} />
       {/* Hier werden die generierten Buchstaben-Buttons platziert */}
       {renderLetterButtons()}
-      <button onClick={() => handleNextLevel()}>Next Level</button>
+      <button onClick={handleNextLevel}>Next Level</button>
     </div>
   );
 };
