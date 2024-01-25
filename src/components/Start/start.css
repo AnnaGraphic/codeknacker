@@ -1,0 +1,103 @@
+@import "/src/index.css";
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Afacad:wght@500&family=Roboto+Mono&display=swap");
+
+.start {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: var(--light);
+}
+
+.start h1 {
+  font-size: 7em;
+  font-family: "Afacad", sans-serif;
+  color: var(--light);
+  text-shadow: 3px 3px 0 #4074b5, 3px -3px 0 #4074b5, -3px 3px 0 #4074b5,
+    -3px -3px 0 #4074b5, 3px 3px 0 #4074b5, 3px 3px 0 #4074b5,
+    -3px 0px 0 #4074b5, 0px -3px 0 #4074b5;
+  color: var(--light);
+  margin: 0;
+  margin-top: 0.5em;
+  line-height: 0.5em;
+}
+
+.start h3 {
+  font-family: "Roboto Mono", monospace;
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0;
+  line-height: 2.2em;
+}
+
+.start .startlogo {
+  max-width: 20em;
+  max-height: 20em;
+  border: 0.01em solid #ccc;
+  border-radius: 0.5em;
+  background-color: #5697d1;
+  margin: 2.5em;
+}
+
+.start button {
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  border-radius: 30px;
+  transition-property: background-color, border-color, color, box-shadow, filter;
+  transition-duration: 0.3s;
+  border: 1px solid transparent;
+  letter-spacing: 2px;
+  min-width: 160px;
+  text-transform: uppercase;
+  white-space: normal;
+  font-weight: 700;
+  text-align: center;
+  padding: 17px 48px;
+  color: #fff;
+  background-color: var(--custom-color);
+  height: 48px;
+}
+
+.start button:hover {
+  transform: scale(1.04);
+  background-color: #21e065;
+}
+
+@media screen and (max-width: 768px) {
+  .start .start h1 {
+    font-size: 5em;
+  }
+  .start .start h3 {
+    font-size: 1.5em;
+  }
+  .start .startlogo {
+    max-width: 10em;
+    max-height: 10em;
+    margin: 1.5em;
+  }
+  .start button {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .start .start h1 {
+    margin-top: 1em;
+    font-size: 2em;
+  }
+  .start .start h3 {
+    font-size: 1em;
+  }
+  .start .startlogo {
+    max-width: 8em;
+    max-height: 8em;
+    margin: 1em;
+  }
+  .start button {
+    font-size: 0.8em;
+  }
+}
