@@ -9,11 +9,8 @@ const FieldForRiddle = ({ currentLevel, userInput, onCheckSolution }) => {
   const processWord = (word, revealedLetters) => {
     return word
       .split("")
-      .map((letter, index) => (
-        <span key={index}>
-          {revealedLetters.includes(letter) ? letter : "_ "}
-        </span>
-      ));
+      .map((letter) => (revealedLetters.includes(letter) ? letter : "_"))
+      .join(" ");
   };
 
   const displayWord = (word, revealedLetters) => {
@@ -63,6 +60,27 @@ const FieldForRiddle = ({ currentLevel, userInput, onCheckSolution }) => {
       );
     }
   };
+
+  const logWord = () => {
+    const word = riddles[currentLevel]?.word;
+    const wordType = typeof word;
+    console.log(`Gesuchtes Wort: ${word} (Datentyp: ${wordType})`);
+  };
+
+  const logSolutions = () => {
+    puzzles.forEach((puzzle, index) => {
+      const solution = puzzle.solution;
+      const solutionType = typeof solution;
+      console.log(
+        `Hinweis ${index + 1} Lösung: ${solution} (Datentyp: ${solutionType})`
+      );
+    });
+  };
+
+  // Aufrufen der logWord-Funktion
+  // logWord();
+  // Aufrufen der logSolutions-Funktion
+  // logSolutions();
 
   return (
     <div>

@@ -38,12 +38,9 @@ const riddles = [
         hint: "Welcher Tag kommt vor Montag?",
         solution: "Sonntag",
       },
-      // Weitere Rätsel für Level 1
     ],
   },
   // Weitere Level können hier hinzugefügt werden
 ];
-
-// Beispielaufrufe für die Funktionen
 
 export { riddles };
