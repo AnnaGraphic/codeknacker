@@ -4,12 +4,10 @@ import { riddles } from "./riddle.js";
 
 const FieldForRiddle = ({ currentLevel }) => {
   const puzzles = riddles[currentLevel]?.puzzles || [];
+  const word = riddles[currentLevel]?.word || "";
 
   const getDisplayWord = (word) => {
-    const displayArray = Array.from({ length: word.length }, (_, index) => (
-      <span key={index}>_</span>
-    ));
-    return displayArray.join(" ");
+    return <span>{word}</span>;
   };
 
   const getDisplayHint = () => {
@@ -30,7 +28,7 @@ const FieldForRiddle = ({ currentLevel }) => {
   return (
     <div>
       <p>Level: {currentLevel + 1}</p>
-      <p>Gesuchtes Wort: {getDisplayWord(riddles[currentLevel]?.word || "")}</p>
+      <p>Gesuchtes Wort: {getDisplayWord(word)}</p>
       <p>Hinweise: {getDisplayHint()}</p>
     </div>
   );
