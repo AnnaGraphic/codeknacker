@@ -24,7 +24,7 @@
   - [X] add fallback-route
   - [ ] after login: go to game
 - [ ] contexts:
-  - [ ] change loginReducer to userReducer
+  - [x] change loginReducer to userReducer
 Später
 - [🐼] database
 - [ ] deployment
