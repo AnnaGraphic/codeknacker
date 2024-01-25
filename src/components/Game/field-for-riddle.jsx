@@ -5,6 +5,7 @@ import { riddles } from "./riddle.js";
 const FieldForRiddle = ({ currentLevel, userInput, onCheckSolution }) => {
   const puzzles = riddles[currentLevel]?.puzzles || [];
   const [selectedHint, setSelectedHint] = useState(1);
+  const [revealedLetters, setRevealedLetters] = useState([]);
 
   const processWord = (word, revealedLetters) => {
     return word
@@ -33,7 +34,10 @@ const FieldForRiddle = ({ currentLevel, userInput, onCheckSolution }) => {
             onClick={() => setSelectedHint(index + 1)}
           >{`Hinweis ${index + 1}: ${puzzle?.hint}`}</span>
         </p>
-        <p>{`Lösung: ${processWord(puzzle?.solution || "", [])}`}</p>
+        <p>{`Lösung: ${processWord(
+          puzzle?.solution || "",
+          revealedLetters
+        )}`}</p>
       </div>
     ));
   };
@@ -50,6 +54,10 @@ const FieldForRiddle = ({ currentLevel, userInput, onCheckSolution }) => {
           console.log(
             `Buchstabe ist vorhanden an Position ${userInputIndex + 1}`
           );
+          setRevealedLetters((prevRevealed) => [
+            ...prevRevealed,
+            userInput.toUpperCase(),
+          ]);
         } else {
           console.log("Buchstabe im Hinweis nicht vorhanden");
         }
@@ -61,31 +69,27 @@ const FieldForRiddle = ({ currentLevel, userInput, onCheckSolution }) => {
     }
   };
 
-  const logWord = () => {
-    const word = riddles[currentLevel]?.word;
-    const wordType = typeof word;
-    console.log(`Gesuchtes Wort: ${word} (Datentyp: ${wordType})`);
-  };
+  // Nicht benutzte Funktionen und auskommentierter Code
+  // const logWord = () => {
+  //   const word = riddles[currentLevel]?.word;
+  //   const wordType = typeof word;
+  //   console.log(`Gesuchtes Wort: ${word} (Datentyp: ${wordType})`);
+  // };
 
-  const logSolutions = () => {
-    puzzles.forEach((puzzle, index) => {
-      const solution = puzzle.solution;
-      const solutionType = typeof solution;
-      console.log(
-        `Hinweis ${index + 1} Lösung: ${solution} (Datentyp: ${solutionType})`
-      );
-    });
-  };
-
-  // Aufrufen der logWord-Funktion
-  // logWord();
-  // Aufrufen der logSolutions-Funktion
-  // logSolutions();
+  // const logSolutions = () => {
+  //   puzzles.forEach((puzzle, index) => {
+  //     const solution = puzzle.solution;
+  //     const solutionType = typeof solution;
+  //     console.log(
+  //       `Hinweis ${index + 1} Lösung: ${solution} (Datentyp: ${solutionType})`
+  //     );
+  //   });
+  // };
 
   return (
     <div>
       <p>Level: {currentLevel + 1}</p>
-      {displayWord(riddles[currentLevel]?.word || "", [])}
+      {displayWord(riddles[currentLevel]?.word || "", revealedLetters)}
       <div>Hinweise: {displayHints()}</div>
       <input
         type="text"
