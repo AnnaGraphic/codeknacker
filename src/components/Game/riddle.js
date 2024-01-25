@@ -7,35 +7,35 @@ const riddles = [
     usedLetters: {}, // Objekt zur Speicherung der verwendeten Buchstaben und ihrer Nummern
     puzzles: [
       {
-        question: "Woraus besteht ein Baum?",
+        hint: "Woraus besteht ein Baum?",
         solution: "Holz",
       },
       {
-        question: "Welches Tier miaut und schläft gerne?",
+        hint: "Welches Tier miaut und schläft gerne?",
         solution: "Katze",
       },
       {
-        question: "Was fliegt hoch am Himmel und singt?",
+        hint: "Was fliegt hoch am Himmel und singt?",
         solution: "Vogel",
       },
       {
-        question: "Was trägt man am Kopf und schützt vor der Sonne?",
+        hint: "Was trägt man am Kopf und schützt vor der Sonne?",
         solution: "Hut",
       },
       {
-        question: "Was ist gelb, süß und man kann es schälen?",
+        hint: "Was ist gelb, süß und man kann es schälen?",
         solution: "Banane",
       },
       {
-        question: "In welchem Raum kocht man normalerweise?",
+        hint: "In welchem Raum kocht man normalerweise?",
         solution: "Küche",
       },
       {
-        question: "Was hat vier Räder und fährt?",
+        hint: "Was hat vier Räder und fährt?",
         solution: "Auto",
       },
       {
-        question: "Welcher Tag kommt vor Montag?",
+        hint: "Welcher Tag kommt vor Montag?",
         solution: "Sonntag",
       },
       // Weitere Rätsel für Level 1
