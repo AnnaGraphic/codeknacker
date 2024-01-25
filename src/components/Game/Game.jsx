@@ -4,27 +4,25 @@ import FieldForRiddle from "./field-for-riddle.jsx";
 
 const Game = () => {
   const [currentLevel, setCurrentLevel] = useState(0);
-
-  const renderLetterButtons = () => {
-    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZßÜÄÖ";
-    const rows = [];
-
-    for (let i = 0; i < alphabet.length; i += 7) {
-      const row = alphabet.slice(i, i + 7);
-      rows.push(row);
-    }
-
-    return rows.map((row, rowIndex) => (
-      <div key={rowIndex}>
-        {row.split("").map((letter) => (
-          <button key={letter}>Guess {letter}</button>
-        ))}
-      </div>
-    ));
-  };
+  const [userInput, setUserInput] = useState(""); // Hinzufügen des Zustands für die Benutzereingabe
 
   const handleNextLevel = () => {
     setCurrentLevel((prevLevel) => prevLevel + 1);
+    setUserInput(""); // Zurücksetzen der Benutzereingabe beim Wechsel zum nächsten Level
+  };
+
+  const handleUserInput = () => {
+    // Überprüfe, ob die Eingabe gültig ist (nur ein Buchstabe)
+    if (userInput.length === 1 && /[a-zA-ZßÜÄÖ]/.test(userInput)) {
+      // Hier kannst du die Logik für die Verarbeitung der Antwort implementieren
+      console.log("Benutzereingabe:", userInput);
+
+      // Zurücksetzen der Benutzereingabe
+      setUserInput("");
+    } else {
+      // Zeige eine Fehlermeldung an oder führe andere Aktionen für ungültige Eingaben durch
+      console.error("Ungültige Eingabe. Bitte nur einen Buchstaben eingeben.");
+    }
   };
 
   useEffect(() => {
@@ -37,8 +35,15 @@ const Game = () => {
       <p>Score: 0</p>
       {/* Hier wird die FieldForRiddle-Komponente platziert */}
       <FieldForRiddle currentLevel={currentLevel} />
-      {/* Hier werden die generierten Buchstaben-Buttons platziert */}
-      {renderLetterButtons()}
+      {/* Eingabefeld für Benutzer */}
+      <input
+        type="text"
+        value={userInput}
+        onChange={(e) => setUserInput(e.target.value)}
+        maxLength={1} // Begrenze die Eingabe auf einen Buchstaben
+      />
+      {/* Button zum Einreichen der Benutzereingabe */}
+      <button onClick={handleUserInput}>Submit</button>
       <button onClick={handleNextLevel}>Next Level</button>
     </div>
   );
