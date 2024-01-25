@@ -1,44 +1,35 @@
 // field-for-riddle.jsx
 import React from "react";
-import { riddles } from "./riddle";
+import { riddles } from "./riddle.js";
 
-const FieldForRiddle = ({ currentLevel, revealedLetters, usedLetters }) => {
-  const currentPuzzle = riddles[currentLevel]?.puzzles[0] || {};
-  const solution = currentPuzzle.solution || "";
+const FieldForRiddle = ({ currentLevel }) => {
+  const puzzles = riddles[currentLevel]?.puzzles || [];
+  const word = riddles[currentLevel]?.word || "";
 
-  const getDisplayWord = () => {
-    return solution
-      .toString()
-      .split("")
-      .map((letter) => {
-        const isRevealed = revealedLetters.includes(letter);
-        const displayLetter = isRevealed ? letter : "_";
-        const number =
-          usedLetters && usedLetters.hasOwnProperty(letter)
-            ? usedLetters[letter]
-            : "";
-
-        return (
-          <span key={letter}>
-            {displayLetter}
-            {isRevealed && <sup>{number}</sup>}
-          </span>
-        );
-      })
-      .join(" ");
+  const getDisplayWord = (word) => {
+    return <span>{word}</span>;
   };
+
+  const getDisplayHint = () => {
+    const hintElements = [];
+
+    puzzles.forEach((puzzle, index) => {
+      hintElements.push(
+        <div key={index + 1}>
+          <p>{`Hinweis ${index + 1}: ${puzzle?.hint}`}</p>
+          <p>{`Lösung: ${puzzle?.solution}`}</p>
+        </div>
+      );
+    });
+
+    return hintElements;
+  };
+
   return (
     <div>
       <p>Level: {currentLevel + 1}</p>
-      <p>Gesuchtes Wort: {getDisplayWord()}</p>
-      {riddles[currentLevel]?.puzzles.map((puzzle, index) => (
-        <div key={index}>
-          <p>
-            Hinweis {index + 1}: {puzzle?.question}
-          </p>
-          <p>Lösung: {getDisplayWord()}</p>
-        </div>
-      ))}
+      <p>Gesuchtes Wort: {getDisplayWord(word)}</p>
+      <p>Hinweise: {getDisplayHint()}</p>
     </div>
   );
 };
