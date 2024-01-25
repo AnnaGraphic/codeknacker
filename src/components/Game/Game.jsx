@@ -1,45 +1,57 @@
 // Game.jsx
 import React, { useState, useEffect } from "react";
 import FieldForRiddle from "./field-for-riddle.jsx";
+import "./Game.css"; // Importiere die CSS-Datei
 
 const Game = () => {
   const [currentLevel, setCurrentLevel] = useState(0);
-
-  const renderLetterButtons = () => {
-    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZßÜÄÖ";
-    const rows = [];
-
-    for (let i = 0; i < alphabet.length; i += 7) {
-      const row = alphabet.slice(i, i + 7);
-      rows.push(row);
-    }
-
-    return rows.map((row, rowIndex) => (
-      <div key={rowIndex}>
-        {row.split("").map((letter) => (
-          <button key={letter}>Guess {letter}</button>
-        ))}
-      </div>
-    ));
-  };
+  const [userInput, setUserInput] = useState("");
+  const [score, setScore] = useState(0);
+  const [wordGuessed, setWordGuessed] = useState(false);
+  const [showNextLevelButton, setShowNextLevelButton] = useState(false);
 
   const handleNextLevel = () => {
     setCurrentLevel((prevLevel) => prevLevel + 1);
+    setUserInput("");
+    setWordGuessed(false);
+    setShowNextLevelButton(false);
+  };
+
+  const handleCheckSolution = (input) => {
+    setUserInput(input.toUpperCase());
+  };
+
+  const handleWordGuessed = () => {
+    setScore((prevScore) => prevScore + 10);
+    setWordGuessed(true);
+    setShowNextLevelButton(true);
+  };
+
+  const handleResetRevealedLetters = () => {
+    setShowNextLevelButton(false);
   };
 
   useEffect(() => {
-    setCurrentLevel(0); // Setze das Anfangslevel
+    setCurrentLevel(0);
+    setScore(0);
+    setShowNextLevelButton(false);
   }, []);
 
   return (
-    <div>
-      <h1>Game Component</h1>
-      <p>Score: 0</p>
-      {/* Hier wird die FieldForRiddle-Komponente platziert */}
-      <FieldForRiddle currentLevel={currentLevel} />
-      {/* Hier werden die generierten Buchstaben-Buttons platziert */}
-      {renderLetterButtons()}
-      <button onClick={handleNextLevel}>Next Level</button>
+    <div className="content">
+      <h1>Game</h1>
+      <p>Score: {score}</p>
+      <FieldForRiddle
+        currentLevel={currentLevel}
+        userInput={userInput}
+        onCheckSolution={handleCheckSolution}
+        onWordGuessed={handleWordGuessed}
+        wordGuessed={wordGuessed}
+        onResetRevealedLetters={handleResetRevealedLetters}
+      />
+      {showNextLevelButton && (
+        <button onClick={handleNextLevel}>Next Level</button>
+      )}
     </div>
   );
 };
