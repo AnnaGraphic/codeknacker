@@ -14,7 +14,7 @@ export function Dropdown({ open, handleOpen }) {
             {dropdownLinks.map((link, index) => {
               console.log(link.path);
               return (
-                <Link to={`${link.path}`} key={index}>
+                <Link to={`/${link.path}`} key={index}>
                   {link.path}
                 </Link>
               );
