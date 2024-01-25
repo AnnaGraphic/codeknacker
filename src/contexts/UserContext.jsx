@@ -4,7 +4,7 @@ import React from "react";
 export const UserContext = createContext();
 export const useUserContext = () => useContext(UserContext);
 
-function loginReducer(state, action) {
+function UserReducer(state, action) {
   switch (action.type) {
     case "field":
       return {
@@ -68,7 +68,7 @@ const initialState = {
 };
 
 const UserContextProvider = ({ children }) => {
-  const [userState, dispatch] = useReducer(loginReducer, initialState);
+  const [userState, dispatch] = useReducer(UserReducer, initialState);
 
   return (
     <UserContext.Provider value={{ userState, dispatch }}>
