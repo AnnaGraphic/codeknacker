@@ -1,38 +1,23 @@
 // Game.jsx
 import React, { useState, useEffect } from "react";
 import FieldForRiddle from "./field-for-riddle";
-import { riddles, assignLetterNumber, generateUniqueKeyword } from "./riddle";
+import { riddles } from "./riddle";
 
 const Game = () => {
   const [currentLevel, setCurrentLevel] = useState(0);
   const [currentWord, setCurrentWord] = useState("");
   const [revealedLetters, setRevealedLetters] = useState([]);
   const [score, setScore] = useState(0);
-  const [usedLetters, setUsedLetters] = useState({});
-
-  const revealLetter = (letter) => {
-    if (currentWord.includes(letter) && !revealedLetters.includes(letter)) {
-      setRevealedLetters((prevLetters) => [...prevLetters, letter]);
-      // Hier könntest du auch die Punktzahl erhöhen oder weitere Aktionen durchführen.
-    }
-  };
-
-  const handleLetterGuess = (letter) => {
-    if (currentWord.includes(letter)) {
-      setRevealedLetters((prevLetters) => [...prevLetters, letter]);
-      setScore((prevScore) => prevScore + 10);
-    }
-  };
 
   const handleNextLevel = () => {
     setCurrentLevel((prevLevel) => prevLevel + 1);
     setRevealedLetters([]);
     // Setze das aktuelle Wort für das neue Level
-    setCurrentWord(riddles[currentLevel + 1].word);
+    setCurrentWord(riddles[currentLevel + 1]?.word || "");
   };
 
   const renderLetterButtons = () => {
-    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZßÜÄÖ";
     return alphabet.split("").map((letter) => (
       <button key={letter} onClick={() => revealLetter(letter)}>
         Guess {letter}
@@ -40,14 +25,18 @@ const Game = () => {
     ));
   };
 
-  useEffect(() => {
-    // Sicherheitsüberprüfung für currentLevelData und currentPuzzle
-    const currentLevelData = riddles[currentLevel];
-    if (currentLevelData && currentLevelData.puzzles) {
-      const currentPuzzle = currentLevelData.puzzles[0];
-      // Hier kannst du weitere Logik mit currentPuzzle durchführen, wenn nötig
+  const revealLetter = (letter) => {
+    if (!revealedLetters.includes(letter)) {
+      // Füge den Buchstaben nur hinzu, wenn er noch nicht aufgedeckt wurde
+      // Überprüfe auch, ob der Buchstabe im Lösungswort vorhanden ist
+      if (currentWord.includes(letter)) {
+        setRevealedLetters((prevLetters) => [...prevLetters, letter]);
+        // Hier könntest du auch die Punktzahl erhöhen oder weitere Aktionen durchführen.
+      }
     }
+  };
 
+  useEffect(() => {
     // Überprüfe, ob das Wort komplett geraten wurde
     if (
       revealedLetters.length === currentWord.length &&
@@ -63,12 +52,8 @@ const Game = () => {
 
   useEffect(() => {
     // Setze das Anfangswort für das erste Level
-    setCurrentWord(riddles[currentLevel].word);
+    setCurrentWord(riddles[currentLevel]?.word || "");
   }, [currentLevel]);
-
-  // Beispielaufruf für die Funktion assignLetterNumber
-  const letterANumber = assignLetterNumber(usedLetters, "A");
-  console.log("Nummer für Buchstabe A:", letterANumber);
 
   return (
     <div>

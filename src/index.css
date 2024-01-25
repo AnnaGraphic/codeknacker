@@ -1,10 +1,12 @@
 :root {
-  --main-color: #ff8a4b;
-  --main-color-darker: #e87341;
-  --secondary-color: #f4009e;
-  --light: #ffe1e1;
+  --main-color: #52679b;
+  --main-color-darker: #004b96;
+  --secondary-color: #f8931d;
+  --light: #fbf6b0;
   --dark: #000000;
+  --custom-color: #fcc20d;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +14,7 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -20,7 +22,7 @@ body {
 
 main {
   flex: 1;
-  background-color: var(--light);
+  background-color: var(--main-color-darker);
   /*temp rule: */
   height: 100vh;
 }
