@@ -5,11 +5,11 @@ import BurgerSvg from "../../assets/burger.svg";
 export function Dropdown({ open, handleOpen }) {
   return (
     <div className="dropdown">
-      <button onClick={handleOpen}>
+      <button className="burger-menu" onClick={handleOpen}>
         <img src={BurgerSvg} alt="burger" />
       </button>
       {open && (
-        <div>
+        <div className="dropdown-content">
           <ul className="menu">
             {dropdownLinks.map((link, index) => {
               console.log(link.path);
