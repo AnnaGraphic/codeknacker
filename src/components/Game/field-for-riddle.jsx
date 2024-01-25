@@ -1,25 +1,49 @@
 import React, { useState } from "react";
-import { riddles } from "./riddle";
+import { riddles } from "./riddle.js";
 
-const FieldForRiddle = ({ currentLevel }) => {
+// Funktion, die sicherstellt, dass 'solution' ein String ist
+const ensureString = (value) => {
+  return Array.isArray(value) ? value.join("") : value;
+};
+
+const FieldForRiddle = ({ currentLevel, userInput }) => {
   const puzzles = riddles[currentLevel]?.puzzles || [];
-  const [selectedHint, setSelectedHint] = useState(1); // Starte mit dem ersten Hinweis
+  const [selectedHint, setSelectedHint] = useState(1);
 
-  const getDisplayWord = (word) => {
-    return <span>{word}</span>;
+  // Funktion, die ein Wort in Buchstaben teilt und durch Unterstriche ersetzt
+  const processWord = (word, revealedLetters) => {
+    return word
+      .split("")
+      .map((letter, index) => (
+        <span key={index}>
+          {revealedLetters.includes(letter) ? letter : "_ "}
+        </span>
+      ));
   };
 
-  const getDisplayHint = () => {
+  // Funktion, die das gesuchte Wort anzeigt und processWord aufruft
+  const displayWord = (word, revealedLetters) => {
+    return (
+      <div>
+        <p>Gesuchtes Wort: {processWord(word, revealedLetters)}</p>
+      </div>
+    );
+  };
+
+  // Funktion, die die Hinweise mit Lösung anzeigt
+  const displayHints = () => {
     return puzzles.map((puzzle, index) => (
       <div key={index + 1}>
-        <p
-          style={{
-            cursor: "pointer",
-            fontWeight: index + 1 === selectedHint ? "bold" : "normal",
-          }}
-          onClick={() => setSelectedHint(index + 1)}
-        >{`Hinweis ${index + 1}: ${puzzle?.hint}`}</p>
-        <p>{`Lösung: ${puzzle?.solution}`}</p>
+        <p>
+          <span
+            style={{
+              cursor: "pointer",
+              fontWeight: index + 1 === selectedHint ? "bold" : "normal",
+            }}
+            onClick={() => setSelectedHint(index + 1)}
+          >{`Hinweis ${index + 1}: ${puzzle?.hint}`}</span>
+        </p>
+        <p>{`Lösung: ${processWord(ensureString(puzzle?.solution), [])}`}</p>
       </div>
     ));
   };
@@ -27,8 +51,8 @@ const FieldForRiddle = ({ currentLevel }) => {
   return (
     <div>
       <p>Level: {currentLevel + 1}</p>
-      <p>Gesuchtes Wort: {getDisplayWord(riddles[currentLevel]?.word || "")}</p>
-      <p>Hinweise: {getDisplayHint()}</p>
+      {displayWord(riddles[currentLevel]?.word || "", [])}
+      <div>Hinweise: {displayHints()}</div>
     </div>
   );
 };

@@ -31,7 +31,7 @@ const Game = () => {
 
   return (
     <div>
-      <h1>Game Component</h1>
+      <h1>Game</h1>
       <p>Score: 0</p>
       {/* Hier wird die FieldForRiddle-Komponente platziert */}
       <FieldForRiddle currentLevel={currentLevel} />
