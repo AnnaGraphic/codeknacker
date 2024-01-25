@@ -13,7 +13,7 @@ export function Header () {
   return (
     <header className="header">
       <div className="headerLogo"><img src="logo.svg" alt="logo" /></div>
-      <Link to='/start' ><div className="headerTitle">Codeknacker</div> </Link>
+      <Link to='/' ><div className="headerTitle">Codeknacker</div> </Link>
       <Dropdown
         open={open}
         handleOpen={handleOpen}
