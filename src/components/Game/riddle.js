@@ -8,35 +8,35 @@ const riddles = [
     puzzles: [
       {
         hint: "Woraus besteht ein Baum?",
-        solution: "Holz",
+        solution: "HOLZ",
       },
       {
         hint: "Welches Tier miaut und schläft gerne?",
-        solution: "Katze",
+        solution: "KATZE",
       },
       {
         hint: "Was fliegt hoch am Himmel und singt?",
-        solution: "Vogel",
+        solution: "VOGEL",
       },
       {
         hint: "Was trägt man am Kopf und schützt vor der Sonne?",
-        solution: "Hut",
+        solution: "HUT",
       },
       {
         hint: "Was ist gelb, süß und man kann es schälen?",
-        solution: "Banane",
+        solution: "BANANE",
       },
       {
         hint: "In welchem Raum kocht man normalerweise?",
-        solution: "Küche",
+        solution: "KÜCHE",
       },
       {
         hint: "Was hat vier Räder und fährt?",
-        solution: "Auto",
+        solution: "AUTO",
       },
       {
         hint: "Welcher Tag kommt vor Montag?",
-        solution: "Sonntag",
+        solution: "SONNTAG",
       },
     ],
   },

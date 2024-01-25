@@ -2,7 +2,13 @@
 import React, { useState } from "react";
 import { riddles } from "./riddle.js";
 
-const FieldForRiddle = ({ currentLevel, userInput, onCheckSolution }) => {
+const FieldForRiddle = ({
+  currentLevel,
+  userInput,
+  onCheckSolution,
+  onWordGuessed,
+  wordGuessed,
+}) => {
   const puzzles = riddles[currentLevel]?.puzzles || [];
   const [selectedHint, setSelectedHint] = useState(1);
   const [revealedLetters, setRevealedLetters] = useState([]);
@@ -58,6 +64,11 @@ const FieldForRiddle = ({ currentLevel, userInput, onCheckSolution }) => {
             ...prevRevealed,
             userInput.toUpperCase(),
           ]);
+
+          // Check if all letters are revealed
+          if (solution.length === revealedLetters.length + 1) {
+            onWordGuessed();
+          }
         } else {
           console.log("Buchstabe im Hinweis nicht vorhanden");
         }
@@ -68,23 +79,6 @@ const FieldForRiddle = ({ currentLevel, userInput, onCheckSolution }) => {
       );
     }
   };
-
-  // Nicht benutzte Funktionen und auskommentierter Code
-  // const logWord = () => {
-  //   const word = riddles[currentLevel]?.word;
-  //   const wordType = typeof word;
-  //   console.log(`Gesuchtes Wort: ${word} (Datentyp: ${wordType})`);
-  // };
-
-  // const logSolutions = () => {
-  //   puzzles.forEach((puzzle, index) => {
-  //     const solution = puzzle.solution;
-  //     const solutionType = typeof solution;
-  //     console.log(
-  //       `Hinweis ${index + 1} Lösung: ${solution} (Datentyp: ${solutionType})`
-  //     );
-  //   });
-  // };
 
   return (
     <div>
