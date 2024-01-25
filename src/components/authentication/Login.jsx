@@ -2,7 +2,7 @@ import { LoginUser } from "./LoginUser";
 import { useUserContext } from "../../contexts/UserContext";
 import "./login.css";
 
-function LoginReducer(state, action) {
+function UserReducer(state, action) {
   switch (action.type) {
     case "field":
       return {
