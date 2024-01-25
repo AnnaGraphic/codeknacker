@@ -1,16 +1,11 @@
+// field-for-riddle.jsx
 import React, { useState } from "react";
 import { riddles } from "./riddle.js";
 
-// Funktion, die sicherstellt, dass 'solution' ein String ist
-const ensureString = (value) => {
-  return Array.isArray(value) ? value.join("") : value;
-};
-
-const FieldForRiddle = ({ currentLevel, userInput }) => {
+const FieldForRiddle = ({ currentLevel, userInput, onCheckSolution }) => {
   const puzzles = riddles[currentLevel]?.puzzles || [];
   const [selectedHint, setSelectedHint] = useState(1);
 
-  // Funktion, die ein Wort in Buchstaben teilt und durch Unterstriche ersetzt
   const processWord = (word, revealedLetters) => {
     return word
       .split("")
@@ -21,7 +16,6 @@ const FieldForRiddle = ({ currentLevel, userInput }) => {
       ));
   };
 
-  // Funktion, die das gesuchte Wort anzeigt und processWord aufruft
   const displayWord = (word, revealedLetters) => {
     return (
       <div>
@@ -30,7 +24,6 @@ const FieldForRiddle = ({ currentLevel, userInput }) => {
     );
   };
 
-  // Funktion, die die Hinweise mit Lösung anzeigt
   const displayHints = () => {
     return puzzles.map((puzzle, index) => (
       <div key={index + 1}>
@@ -43,9 +36,32 @@ const FieldForRiddle = ({ currentLevel, userInput }) => {
             onClick={() => setSelectedHint(index + 1)}
           >{`Hinweis ${index + 1}: ${puzzle?.hint}`}</span>
         </p>
-        <p>{`Lösung: ${processWord(ensureString(puzzle?.solution), [])}`}</p>
+        <p>{`Lösung: ${processWord(puzzle?.solution || "", [])}`}</p>
       </div>
     ));
+  };
+
+  const checkUserInput = () => {
+    if (userInput && selectedHint) {
+      const selectedPuzzle = puzzles[selectedHint - 1];
+      const solution = selectedPuzzle?.solution;
+
+      if (typeof solution === "string") {
+        const userInputIndex = solution.indexOf(userInput.toUpperCase());
+
+        if (userInputIndex !== -1) {
+          console.log(
+            `Buchstabe ist vorhanden an Position ${userInputIndex + 1}`
+          );
+        } else {
+          console.log("Buchstabe im Hinweis nicht vorhanden");
+        }
+      }
+    } else {
+      console.log(
+        "Bitte wählen Sie einen Hinweis und geben Sie einen Buchstaben ein."
+      );
+    }
   };
 
   return (
@@ -53,6 +69,13 @@ const FieldForRiddle = ({ currentLevel, userInput }) => {
       <p>Level: {currentLevel + 1}</p>
       {displayWord(riddles[currentLevel]?.word || "", [])}
       <div>Hinweise: {displayHints()}</div>
+      <input
+        type="text"
+        value={userInput}
+        onChange={(e) => onCheckSolution(e.target.value)}
+        maxLength={1}
+      />
+      <button onClick={checkUserInput}>Submit</button>
     </div>
   );
 };
