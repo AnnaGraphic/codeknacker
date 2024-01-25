@@ -43,10 +43,9 @@ const FieldForRiddle = ({
       <div key={index + 1}>
         <p>
           <span
-            style={{
-              cursor: "pointer",
-              fontWeight: index + 1 === selectedHint ? "bold" : "normal",
-            }}
+            className={`Hint ${
+              index + 1 === selectedHint ? "SelectedHint" : ""
+            }`}
             onClick={() => setSelectedHint(index + 1)}
           >{`Hinweis ${index + 1}: ${puzzle?.hint}`}</span>
         </p>
