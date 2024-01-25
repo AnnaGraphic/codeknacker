@@ -9,6 +9,14 @@
   padding: 0.6em 1em;
 }
 
+.header a {
+  color: var(--light);
+  text-decoration: none;
+}
+.header a:link, .header a:visited {
+  color: var(--light);
+}
+
 .headerLogo {
   font-size: 24px;
   font-weight: bold;
