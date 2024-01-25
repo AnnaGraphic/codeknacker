@@ -1,5 +1,5 @@
 // field-for-riddle.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { riddles } from "./riddle.js";
 
 const FieldForRiddle = ({
@@ -8,10 +8,16 @@ const FieldForRiddle = ({
   onCheckSolution,
   onWordGuessed,
   wordGuessed,
+  onResetRevealedLetters,
 }) => {
   const puzzles = riddles[currentLevel]?.puzzles || [];
   const [selectedHint, setSelectedHint] = useState(1);
   const [revealedLetters, setRevealedLetters] = useState([]);
+
+  useEffect(() => {
+    // Reset revealed letters when a new level starts
+    setRevealedLetters([]);
+  }, [currentLevel]);
 
   const processWord = (word, revealedLetters) => {
     return word
@@ -80,6 +86,11 @@ const FieldForRiddle = ({
     }
   };
 
+  const isCurrentWordGuessed = () => {
+    const currentWord = riddles[currentLevel]?.word || "";
+    return revealedLetters.every((letter) => currentWord.includes(letter));
+  };
+
   return (
     <div>
       <p>Level: {currentLevel + 1}</p>
@@ -92,6 +103,9 @@ const FieldForRiddle = ({
         maxLength={1}
       />
       <button onClick={checkUserInput}>Submit</button>
+      {isCurrentWordGuessed() && (
+        <button onClick={onWordGuessed}>Finish</button>
+      )}
     </div>
   );
 };

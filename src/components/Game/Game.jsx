@@ -7,11 +7,13 @@ const Game = () => {
   const [userInput, setUserInput] = useState("");
   const [score, setScore] = useState(0);
   const [wordGuessed, setWordGuessed] = useState(false);
+  const [showNextLevelButton, setShowNextLevelButton] = useState(false);
 
   const handleNextLevel = () => {
     setCurrentLevel((prevLevel) => prevLevel + 1);
     setUserInput("");
     setWordGuessed(false);
+    setShowNextLevelButton(false);
   };
 
   const handleCheckSolution = (input) => {
@@ -21,11 +23,17 @@ const Game = () => {
   const handleWordGuessed = () => {
     setScore((prevScore) => prevScore + 10);
     setWordGuessed(true);
+    setShowNextLevelButton(true);
+  };
+
+  const handleResetRevealedLetters = () => {
+    setShowNextLevelButton(false);
   };
 
   useEffect(() => {
     setCurrentLevel(0);
     setScore(0);
+    setShowNextLevelButton(false);
   }, []);
 
   return (
@@ -38,8 +46,11 @@ const Game = () => {
         onCheckSolution={handleCheckSolution}
         onWordGuessed={handleWordGuessed}
         wordGuessed={wordGuessed}
+        onResetRevealedLetters={handleResetRevealedLetters}
       />
-      {wordGuessed && <button onClick={handleNextLevel}>Next Level</button>}
+      {showNextLevelButton && (
+        <button onClick={handleNextLevel}>Next Level</button>
+      )}
     </div>
   );
 };
