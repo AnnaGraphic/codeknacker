@@ -1,0 +1,113 @@
+.content {
+  text-align: left;
+}
+
+body {
+  background-color: var(--main-color);
+  color: var(--light);
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  background-color: var(--main-color-darker);
+  height: 100vh;
+  padding: 1rem; /* optional: Fügt etwas Abstand zwischen dem Inhalt und dem Rand hinzu */
+}
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+button {
+  background-color: var(--secondary-color);
+  color: var(--light);
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  margin-top: 1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: var(--custom-color);
+}
+
+/* Styling for the FieldForRiddle component */
+.FieldForRiddle {
+  margin-top: 2rem;
+}
+
+/* Styling for the word display */
+.WordDisplay {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Styling for hints and solutions */
+.Hint {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.Solution {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Styling for the input */
+.InputContainer {
+  margin-top: 1rem;
+}
+
+input {
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 0 0.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
+/* Styling for the Finish button */
+.FinishButton {
+  background-color: var(--secondary-color);
+  color: var(--light);
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  margin-top: 1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.FinishButton:hover {
+  background-color: var(--custom-color);
+}
+
+.Hint {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.SelectedHint {
+  font-weight: bold;
+  color: var(--custom-color); /* Hinzugefügt: Farbe für ausgewählte Hinweise */
+}
+
+/* Styling für Lösungen */
+.Solution {
+  font-size: 1rem;
+  font-weight: bold;
+}
