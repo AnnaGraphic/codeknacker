@@ -2,30 +2,102 @@
   display: flex;
   align-items: center;
   text-align: center;
-  padding: 20px;
+  padding: 1.25rem;
+  flex-direction: column;
 }
 
-.profilePic {
-  width: 50%;
+.profile .profilePic {
+  width: 30%;
   padding: 1em;
+  margin-bottom: 10px;
 }
 
-.profilePic img {
-  max-width: 100%;
+.profile .profilePic img {
+  max-width: 80%;
   border-radius: 50%;
 }
 
-.profileInfo {
+.profile.profileInfo {
   margin-top: 20px;
+  width: 100%;
 }
 
-.profileInfo p {
+.profile .profileInfo input,
+.profileInfo button {
+ width : 100%;
+}
+
+.profileInfo label{
+  margin-bottom: 10px;
+}
+ 
+.profileInfo input {
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.profileInfo button {
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: var(--custom-color);
+  color: var(--light);
+  font-weight: bold;
+}
+
+.profile .profileInfo p {
   margin: 10px 0;
+}
+
+.profile button{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 100%;
+  max-width: 18rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  text-align: center;
+  background-color: var(--main-color);
+  color: white;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 600px) {
   .profile {
     padding: 10px;
+  }
+
+  .profile .profilePic {
+    width: 90%;
+  }
+
+  .profile .profileInfo {
+    margin-top: 10px;
+  }
+
+  .profile .profileInfo p {
+    font-size: 14px;
+  }
+
+  .profile .profileInfo input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+
+  .profilePic {
+    width: 60%;
   }
 
   .profileInfo {
@@ -39,5 +111,24 @@
   .profileInfo input {
     width: 100%;
     box-sizing: border-box;
+  }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+  .profilePic {
+    width: 30%;
+  }
+
+  .profileInfo {
+    margin-top: 15px;
+  }
+
+  .profileInfo p {
+    font-size: 16px;
+  }
+
+  .profileInfo input {
+    padding: 12px;
+    font-size: 18px;
   }
 }

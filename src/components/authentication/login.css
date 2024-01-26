@@ -21,10 +21,11 @@
 
 .form {
 width: 100%;
-max-width: 25rem;
+max-width: 23rem;
+max-height: 28rem;
 margin: auto;
 padding: 1.25rem;
-background-color: var(--light);
+background-color: #FFFFFF;
 border-radius: 0.3125rem;
 box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.2);
 }
@@ -35,11 +36,12 @@ label{
     margin-top: 1rem;
     margin-bottom: 0.5rem;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 0.8rem;
     text-align: left;
     max-width: 18rem;
     margin-left: auto;
     margin-right: auto;
+    line-height: 0.1em;
 }
 input{
     display: block;

@@ -62,28 +62,6 @@
   display: block;
 }
 
-/* .menu {
-  position: absolute;
-  right: 0;
-  text-align: center;
-  width: 60vw;
-  padding: 0.1em;
-  background-color: #f6f6f6;
-}
-
-.menu a {
-  display: block;
-  padding: 0.2em;
-  color: var(--dark);
-  padding: 1.5em;
-}
-
-.menu a:hover {
-  background-color: var(--main-color);
-  color: var(--light);
-  right: 0;
-} */
-
 /* Mobile First Media Query */
 @media only screen and (min-width: 600px) {
   .header {
