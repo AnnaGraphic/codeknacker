@@ -1,3 +1,4 @@
+import {ClipLoader} from 'react-spinners';
 import { LoginUser } from "./LoginUser";
 import { useUserContext } from "../../contexts/UserContext";
 import "./login.css";
@@ -83,7 +84,11 @@ const Login = () => {
   return (
     <div className="login">
       <div>
-        {isLoggedIn ? (
+        {isLoading ? (
+          <div className='spinner'>
+            <ClipLoader color='yellow' size={70}/>
+            </div>
+            ) : isLoggedIn ? (
           <>
             <h1>Hello {username} !</h1>
             {""}
