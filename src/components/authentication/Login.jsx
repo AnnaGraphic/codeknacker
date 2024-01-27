@@ -95,10 +95,9 @@ const Login = () => {
           <form className="form" onSubmit={onSubmit}>
             <h1>Sign in to your account</h1>
             {error && error.general && <p className="error">{error.general}</p>}
-            <label htmlFor="username">Username*</label>
+            <label htmlFor="username">Username<sup>*</sup></label>
             <input
               type="text"
-              placeholder=""
               id="username"
               value={username}
               onChange={(e) =>
@@ -109,10 +108,9 @@ const Login = () => {
                 })
               }
             />
-            <label htmlFor="password">Password*</label>
+            <label htmlFor="password">Password <sup>*</sup></label>
             <input
               type="password"
-              placeholder=""
               id="password"
               autoComplete="new-password"
               value={password}
