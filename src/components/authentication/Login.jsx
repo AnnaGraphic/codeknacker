@@ -1,69 +1,21 @@
 import {ClipLoader} from 'react-spinners';
+import { useEffect, useRef } from 'react';
 import { LoginUser } from "./LoginUser";
 import { useUserContext } from "../../contexts/UserContext";
 import "./login.css";
-
-function LoginReducer(state, action) {
-  switch (action.type) {
-    case "field":
-      return {
-        ...state,
-        [action.field]: action.value,
-      };
-
-    case "login":
-      return {
-        ...state,
-        isLoading: true,
-        isLoggedIn: false,
-        error: "",
-      };
-
-    case "success":
-      return {
-        ...state,
-        isLoggedIn: true,
-      };
-
-    case "error":
-      return {
-        ...state,
-        isLoading: false,
-        error: {
-          ...state.error,
-          [action.field]: action.value,
-        },
-      };
-
-    case "logout":
-      return {
-        ...state,
-        isLoading: false,
-        isLoggedIn: false,
-        username: "",
-        password: "",
-        error: "",
-      };
-
-    default:
-      break;
-  }
-
-  return state;
-}
-// initial State for login 
-const initialState = {
-  username: "",
-  password: "",
-  isLoading: false,
-  isLoggedIn: false,
-  error: "",
-};
 
 // login components
 const Login = () => {
   const { userState, dispatch } = useUserContext();
   const { username, password, isLoading, isLoggedIn, error } = userState;
+
+  // useRef for the input element username
+  const usernameInputRef = useRef();
+
+  // useEffect for the focus when rendering
+   useEffect(() =>{
+    usernameInputRef.current.focus();
+   },[]);
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -114,6 +66,7 @@ const Login = () => {
                   value: e.currentTarget.value,
                 })
               }
+              ref={usernameInputRef}
             />
             <label htmlFor="password">Password <sup>*</sup></label>
             <input
