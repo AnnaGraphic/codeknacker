@@ -51,7 +51,7 @@ function LoginReducer(state, action) {
 
   return state;
 }
-
+// initial State for login 
 const initialState = {
   username: "",
   password: "",
@@ -60,6 +60,7 @@ const initialState = {
   error: "",
 };
 
+// login components
 const Login = () => {
   const { userState, dispatch } = useUserContext();
   const { username, password, isLoading, isLoggedIn, error } = userState;
@@ -86,6 +87,7 @@ const Login = () => {
       <div>
         {isLoading ? (
           <div className='spinner'>
+            {/* loading spinner */}
             <ClipLoader color='yellow' size={70}/>
             </div>
             ) : isLoggedIn ? (

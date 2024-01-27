@@ -9,7 +9,7 @@
 .profile .profilePic {
   width: 30%;
   padding: 1em;
-  margin-bottom: 10px;
+  margin-bottom: 0.625em;
 }
 
 .profile .profilePic img {
@@ -17,8 +17,8 @@
   border-radius: 50%;
 }
 
-.profile.profileInfo {
-  margin-top: 20px;
+.profile .profileInfo {
+  margin-top: 1.25em;
   width: 100%;
 }
 
@@ -28,30 +28,30 @@
 }
 
 .profileInfo label{
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
  
 .profileInfo input {
   width: 80%;
-  padding: 10px;
+  padding: 1.25rem;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
+  border-radius: 0.25em;
+  font-size: 1rem;
 }
 
 .profileInfo button {
   width: 80%;
-  padding: 10px;
+  padding: 1.25rem;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
+  border-radius: 0.25rem;
+  font-size: 1rem;
   background-color: var(--custom-color);
   color: var(--light);
   font-weight: bold;
 }
 
 .profile .profileInfo p {
-  margin: 10px 0;
+  margin: 1.25rem 0;
 }
 
 .profile button{
@@ -62,7 +62,7 @@
   height: 100%;
   max-width: 18rem;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 0.25em;
   padding: 0.5rem;
   font-size: 1rem;
   text-align: center;
@@ -73,7 +73,7 @@
 
 @media only screen and (max-width: 600px) {
   .profile {
-    padding: 10px;
+    padding: 0.625rem;
   }
 
   .profile .profilePic {
@@ -81,11 +81,11 @@
   }
 
   .profile .profileInfo {
-    margin-top: 10px;
+    margin-top: 0.625rem;
   }
 
   .profile .profileInfo p {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 
   .profile .profileInfo input {
@@ -101,11 +101,11 @@
   }
 
   .profileInfo {
-    margin-top: 10px;
+    margin-top: 0.625rem;
   }
 
   .profileInfo p {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 
   .profileInfo input {
@@ -120,15 +120,15 @@
   }
 
   .profileInfo {
-    margin-top: 15px;
+    margin-top: 0.9375rem;
   }
 
   .profileInfo p {
-    font-size: 16px;
+    font-size: 1rem;
   }
 
   .profileInfo input {
-    padding: 12px;
-    font-size: 18px;
+    padding: 0.75rem;
+    font-size: 1.125rem;
   }
 }
