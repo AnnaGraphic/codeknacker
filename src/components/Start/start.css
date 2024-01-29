@@ -44,22 +44,22 @@
   display: inline-block;
   outline: none;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 1;
-  border-radius: 30px;
+  border-radius: 1.875rem;
   transition-property: background-color, border-color, color, box-shadow, filter;
   transition-duration: 0.3s;
-  border: 1px solid transparent;
-  letter-spacing: 2px;
-  min-width: 160px;
+  border: 0.0625rem solid transparent;
+  letter-spacing: 0.125em;
+  min-width: 10em;
   text-transform: uppercase;
   white-space: normal;
   font-weight: 700;
   text-align: center;
-  padding: 17px 48px;
+  padding: 1.0625rem 3rem;
   color: #fff;
   background-color: var(--custom-color);
-  height: 48px;
+  height: 3rem;
 }
 
 .start button:hover {

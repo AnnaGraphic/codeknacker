@@ -20,6 +20,10 @@
   margin-top: 1.25em;
 }
 
+.spinner {
+  margin-top: 10.25em;
+}
+
 .login .form {
 width: 100%;
 max-width: 23rem;
