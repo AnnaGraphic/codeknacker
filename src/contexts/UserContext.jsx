@@ -45,12 +45,21 @@ function UserReducer(state, action) {
         password: "",
         error: "",
       };
+
     case "setUserProfile":
       return {
         ...state,
         username: action.value.username,
         password: action.value.password,
-      }
+      };
+
+    case "raiseScore":
+      console.log('action', action, action.value);
+      return {
+        ...state,
+        score: action.value,
+      };
+
     default:
       break;
   }
