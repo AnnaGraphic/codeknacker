@@ -27,7 +27,7 @@ export function Profile() {
 
   return (
     <div className="profile">
-      <div className="profilePic"><img src={userData.picUrl} alt="" /></div>
+      <div className="profilePic"><img src={userData.pic} alt="" /></div>
       <div className="profileInfo">
         <label>
         Name: {editMode ? <input type="text" name="username" value={newProfileValues.username} onChange={handleChange} /> : username}

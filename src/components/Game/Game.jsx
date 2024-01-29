@@ -1,7 +1,7 @@
 // Game.jsx
 import React, { useState, useEffect } from "react";
 import FieldForRiddle from "./field-for-riddle.jsx";
-import "./Game.css"; // Importiere die CSS-Datei
+import "./game.css"; // Importiere die CSS-Datei
 
 const Game = () => {
   const [currentLevel, setCurrentLevel] = useState(0);

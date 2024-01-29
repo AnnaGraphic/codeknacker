@@ -4,63 +4,6 @@ import { LoginUser } from "./LoginUser";
 import { useUserContext } from "../../contexts/UserContext";
 import "./login.css";
 
-function LoginReducer(state, action) {
-  switch (action.type) {
-    case "field":
-      return {
-        ...state,
-        [action.field]: action.value,
-      };
-
-    case "login":
-      return {
-        ...state,
-        isLoading: true,
-        isLoggedIn: false,
-        error: "",
-      };
-
-    case "success":
-      return {
-        ...state,
-        isLoggedIn: true,
-      };
-
-    case "error":
-      return {
-        ...state,
-        isLoading: false,
-        error: {
-          ...state.error,
-          [action.field]: action.value,
-        },
-      };
-
-    case "logout":
-      return {
-        ...state,
-        isLoading: false,
-        isLoggedIn: false,
-        username: "",
-        password: "",
-        error: "",
-      };
-
-    default:
-      break;
-  }
-
-  return state;
-}
-
-const initialState = {
-  username: "",
-  password: "",
-  isLoading: false,
-  isLoggedIn: false,
-  error: "",
-};
-
 // login component
 function Login() {
   const { userState, dispatch } = useUserContext();
