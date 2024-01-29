@@ -2,14 +2,12 @@
   text-align: left;
   padding-left: 1rem;
   padding-top: 1rem;
-}
-
-#root {
   flex: 1;
   background-color: var(--main-color-darker);
   height: 80vh;
   color: var(--light);
 }
+
 h1 {
   font-size: 2rem;
   margin-bottom: 1rem;
