@@ -2,6 +2,7 @@
 
 //TODO:
 // 1. Fix the but that the next level Button will show to early
+// 2. submit button mit enter key verbinden
 
 import React, { useState, useEffect } from "react";
 import { riddles } from "./riddle.js";
@@ -11,8 +12,6 @@ const FieldForRiddle = ({
   userInput,
   onCheckSolution,
   onWordGuessed,
-  wordGuessed,
-  onResetRevealedLetters,
 }) => {
   const puzzles = riddles[currentLevel]?.puzzles || [];
   const [selectedHint, setSelectedHint] = useState(1);
