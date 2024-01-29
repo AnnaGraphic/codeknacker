@@ -1,7 +1,8 @@
+import userPic from '../assets/userPic.jpg';
 export const userData = {
   id: 1,
   name: 'Harry',
-  picUrl: '/src/assets/userPic.jpg',
+  pic: userPic,
   password: '1234',
   score: 0,
 }
