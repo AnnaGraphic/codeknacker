@@ -1,13 +1,4 @@
-
-
 // field-for-riddle.jsx
-
-//TODO:
-// 1. Fix the but that the next level Button will show to early
-// 2. submit button mit enter key verbinden
-// 3. riddle in data verschieben
-
-
 import React, { useState, useEffect } from "react";
 import { riddles } from "./riddle.js";
 
@@ -17,14 +8,14 @@ const FieldForRiddle = ({
   onCheckSolution,
   onWordGuessed,
   onResetRevealedLetters,
+  onNextLevel,
 }) => {
   const puzzles = riddles[currentLevel]?.puzzles || [];
   const [selectedHint, setSelectedHint] = useState(1);
   const [revealedLetters, setRevealedLetters] = useState([]);
-  const [isWordGuessed, setIsWordGuessed] = useState(false); // Neuer Zustand für die Überprüfung des vollständigen Wortes
+  const [isWordGuessed, setIsWordGuessed] = useState(false);
 
   useEffect(() => {
-    // Reset revealed letters and hide the "Next Level" button when a new level starts
     setRevealedLetters([]);
     setIsWordGuessed(false);
   }, [currentLevel]);
@@ -80,10 +71,9 @@ const FieldForRiddle = ({
             userInput.toUpperCase(),
           ]);
 
-          // Check if all letters are revealed
           if (solution.length === revealedLetters.length + 1) {
             onWordGuessed();
-            setIsWordGuessed(true); // Setze den Zustand auf true, wenn das Wort erraten wurde
+            setIsWordGuessed(true);
           }
         } else {
           console.log("Buchstabe im Hinweis nicht vorhanden");
@@ -109,7 +99,14 @@ const FieldForRiddle = ({
       />
       <button onClick={checkUserInput}>Submit</button>
       {isWordGuessed && (
-        <button onClick={onResetRevealedLetters}>Next Level</button>
+        <button
+          onClick={() => {
+            onResetRevealedLetters();
+            onNextLevel();
+          }}
+        >
+          Next Level
+        </button>
       )}
     </div>
   );
