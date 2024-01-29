@@ -26,8 +26,8 @@
   - [X] px convert to em/rem
 - [x] routing
   - [X] add fallback-route
-  - [ E] after login: go to game
-- [ E] contexts:
+  - [X] after login: go to game
+- [X] contexts:
   - [x] change loginReducer to userReducer
 - [ ] add intro to README
 Später
