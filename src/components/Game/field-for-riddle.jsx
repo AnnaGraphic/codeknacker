@@ -3,6 +3,8 @@
 //TODO:
 // 1. Fix the but that the next level Button will show to early
 // 2. submit button mit enter key verbinden
+// 3. riddle in data verschieben
+
 
 import React, { useState, useEffect } from "react";
 import { riddles } from "./riddle.js";
