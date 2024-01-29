@@ -5,7 +5,7 @@ import {userData} from '../../data/userdata';
 
 export function Profile() {
   const { userState, dispatch } = useUserContext();
-  const { username, password } = userState;
+  const { username, password, score } = userState;
   const [newProfileValues, setProfileValues] = useState({username, password});
   const [editMode, setEditMode] = useState(false);
 
@@ -33,7 +33,7 @@ export function Profile() {
         Name: {editMode ? <input type="text" name="username" value={newProfileValues.username} onChange={handleChange} /> : username}
         </label>
         <label>Password: {editMode ? <input type="password" name="password" value={newProfileValues.password} onChange={handleChange} /> : '*****'}</label>
-        <label>Your Score: {userData.score}</label>
+        <label>Your Score: {score}</label>
         {editMode ? (
           <button onClick={handleSaveChanges}>Save Changes</button>
         ) : (

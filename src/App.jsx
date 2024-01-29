@@ -26,10 +26,6 @@ function App() {
       children: [
         {
           index: true,
-          element: <div />,
-        },
-        {
-          path: "start",
           element: <Start />,
         },
         {

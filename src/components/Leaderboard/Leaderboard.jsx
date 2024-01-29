@@ -1,11 +1,15 @@
-import { useState } from 'react';
-import './leaderboard.css'
+import { useState, useEffect } from 'react';
+import './leaderboard.css';
+import { players } from '../../data/leaderboardDummyData';
 
 export function Leaderboard() {
-  const [leaderboardData, setLeaderboardData] = useState([
-    { id: 1, name: 'Nina', points: 100 },
-    { id: 2, name: 'Yoshimitsu', points: 95 },
-  ]);
+  const [leaderboardData, setLeaderboardData] = useState([]);
+
+  useEffect(() => {
+    const data = players.sort(function(a, b){return b.points - a.points}).slice(0, 10);
+    setLeaderboardData(data);
+    console.log(data)
+  }, []);
 
   return (
     <div className='leaderboardContainer'>
