@@ -2,42 +2,133 @@
   display: flex;
   align-items: center;
   text-align: center;
-  padding: 20px;
+  padding: 1.25rem;
+  flex-direction: column;
 }
 
-.profilePic {
-  width: 50%;
+.profile .profilePic {
+  width: 30%;
   padding: 1em;
+  margin-bottom: 0.625em;
 }
 
-.profilePic img {
-  max-width: 100%;
+.profile .profilePic img {
+  max-width: 80%;
   border-radius: 50%;
 }
 
-.profileInfo {
-  margin-top: 20px;
+.profile .profileInfo {
+  margin-top: 1.25em;
+  width: 100%;
 }
 
-.profileInfo p {
-  margin: 10px 0;
+.profile .profileInfo input,
+.profileInfo button {
+ width : 100%;
+}
+
+.profileInfo label{
+  margin-bottom: 0.625rem;
+}
+ 
+.profileInfo input {
+  width: 80%;
+  padding: 1.25rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25em;
+  font-size: 1rem;
+}
+
+.profileInfo button {
+  width: 80%;
+  padding: 1.25rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  background-color: var(--custom-color);
+  color: var(--light);
+  font-weight: bold;
+}
+
+.profile .profileInfo p {
+  margin: 1.25rem 0;
+}
+
+.profile button{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 100%;
+  max-width: 18rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25em;
+  padding: 0.5rem;
+  font-size: 1rem;
+  text-align: center;
+  background-color: var(--main-color);
+  color: white;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 600px) {
   .profile {
-    padding: 10px;
+    padding: 0.625rem;
+  }
+
+  .profile .profilePic {
+    width: 90%;
+  }
+
+  .profile .profileInfo {
+    margin-top: 0.625rem;
+  }
+
+  .profile .profileInfo p {
+    font-size: 0.875rem;
+  }
+
+  .profile .profileInfo input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+
+  .profilePic {
+    width: 60%;
   }
 
   .profileInfo {
-    margin-top: 10px;
+    margin-top: 0.625rem;
   }
 
   .profileInfo p {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 
   .profileInfo input {
     width: 100%;
     box-sizing: border-box;
+  }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+  .profilePic {
+    width: 30%;
+  }
+
+  .profileInfo {
+    margin-top: 0.9375rem;
+  }
+
+  .profileInfo p {
+    font-size: 1rem;
+  }
+
+  .profileInfo input {
+    padding: 0.75rem;
+    font-size: 1.125rem;
   }
 }

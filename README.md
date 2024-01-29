@@ -8,6 +8,8 @@
   - [X] Header
     - [X] Navigation (e.g. Dropdon)
   - [X] Login
+    -[ E ]loading spinner
+    -[ E ]focus
   - [ M ] Game
     - [ ] update score in userContext
   - [X] Profile
@@ -20,10 +22,11 @@
 - [🐼] index.css
   - [ E ] find colors
   - [ E ] find font
+  - [ E ] px convert to em/rem
 - [x] routing
   - [X] add fallback-route
-  - [ ] after login: go to game
-- [ ] contexts:
+  - [ E] after login: go to game
+- [ E] contexts:
   - [x] change loginReducer to userReducer
 Später
 - [🐼] database
