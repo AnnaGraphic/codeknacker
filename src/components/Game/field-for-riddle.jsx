@@ -9,6 +9,7 @@ const FieldForRiddle = ({
   onWordGuessed,
   onResetRevealedLetters,
   onNextLevel,
+  showNextLevelButton,
 }) => {
   const puzzles = riddles[currentLevel]?.puzzles || [];
   const [selectedHint, setSelectedHint] = useState(1);
@@ -66,14 +67,19 @@ const FieldForRiddle = ({
           console.log(
             `Buchstabe ist vorhanden an Position ${userInputIndex + 1}`
           );
-          setRevealedLetters((prevRevealed) => [
-            ...prevRevealed,
-            userInput.toUpperCase(),
-          ]);
 
-          if (solution.length === revealedLetters.length + 1) {
-            onWordGuessed();
-            setIsWordGuessed(true);
+          if (!revealedLetters.includes(userInput.toUpperCase())) {
+            setRevealedLetters((prevRevealed) => [
+              ...prevRevealed,
+              userInput.toUpperCase(),
+            ]);
+
+            if (solution.length === revealedLetters.length) {
+              onWordGuessed();
+              setIsWordGuessed(true);
+            }
+          } else {
+            console.log("Buchstabe bereits aufgedeckt");
           }
         } else {
           console.log("Buchstabe im Hinweis nicht vorhanden");
@@ -98,7 +104,7 @@ const FieldForRiddle = ({
         maxLength={1}
       />
       <button onClick={checkUserInput}>Submit</button>
-      {isWordGuessed && (
+      {isWordGuessed && showNextLevelButton && (
         <button
           onClick={() => {
             onResetRevealedLetters();

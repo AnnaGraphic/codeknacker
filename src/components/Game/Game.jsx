@@ -45,10 +45,8 @@ const Game = () => {
         onWordGuessed={handleWordGuessed}
         onResetRevealedLetters={handleResetRevealedLetters}
         onNextLevel={handleNextLevel}
+        showNextLevelButton={showNextLevelButton}
       />
-      {showNextLevelButton && (
-        <button onClick={handleNextLevel}>Next Level</button>
-      )}
     </div>
   );
 };
