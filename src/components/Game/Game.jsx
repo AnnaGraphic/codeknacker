@@ -46,7 +46,6 @@ const Game = () => {
         userInput={userInput}
         onCheckSolution={handleCheckSolution}
         onWordGuessed={handleWordGuessed}
-        wordGuessed={wordGuessed}
         onResetRevealedLetters={handleResetRevealedLetters}
       />
       {showNextLevelButton && (
