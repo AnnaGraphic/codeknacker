@@ -23,7 +23,7 @@ export function Dropdown({ open, handleOpen }) {
               );
             })}
             <Link to='/'>
-              <button className="logoutButton"  onChange={() =>
+              <button className="logoutButton"  onClick={() =>
                 dispatch({
                   type: "logout",
                 })
