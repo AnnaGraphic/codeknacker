@@ -7,9 +7,10 @@
 - [ ] components
   - [X] Header
     - [X] Navigation (e.g. Dropdon)
+      - [X] add logout
   - [X] Login
-    -[ E ]loading spinner
-    -[ E ]focus
+    -[X] loading spinner
+    -[X]focus
   - [ M ] Game
     - [ ] update score in userContext
   - [X] Profile
@@ -18,19 +19,20 @@
     - [ ] change username to display name
   - [X] Leaderboard
       - [ ] replace dummy data
-- [🐼] Browser Router
-- [🐼] index.css
-  - [ E ] find colors
-  - [ E ] find font
-  - [ E ] px convert to em/rem
+- [X] Browser Router
+- [X] index.css
+  - [X] find colors
+  - [X] find font
+  - [X] px convert to em/rem
 - [x] routing
   - [X] add fallback-route
   - [ E] after login: go to game
 - [ E] contexts:
   - [x] change loginReducer to userReducer
+- [ ] add intro to README
 Später
 - [🐼] database
-- [ ] deployment
+- [X] deployment
 
 ## Spielablaufplan
 
