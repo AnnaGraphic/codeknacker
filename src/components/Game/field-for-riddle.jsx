@@ -2,6 +2,7 @@
 
 //TODO:
 // 1. Fix the but that the next level Button will show to early
+// riddle in data verscheiebn
 
 import React, { useState, useEffect } from "react";
 import { riddles } from "./riddle.js";

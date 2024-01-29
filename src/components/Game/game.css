@@ -2,10 +2,10 @@
   text-align: left;
 }
 
-main {
+#root {
   flex: 1;
   background-color: var(--main-color-darker);
-  height: 100vh;
+  height: 80vh;
   padding: 1rem; /* optional: Fügt etwas Abstand zwischen dem Inhalt und dem Rand hinzu */
 }
 h1 {
