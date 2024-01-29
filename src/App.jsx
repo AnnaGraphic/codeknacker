@@ -26,10 +26,6 @@ function App() {
       children: [
         {
           index: true,
-          element: <div />,
-        },
-        {
-          path: "start",
           element: <Start />,
         },
         {
@@ -52,7 +48,7 @@ function App() {
         },
       ],
     },
-  ]);
+  ], {basename: import.meta.env.DEV ? "/" : '/codeknacker/'});
 
   return <RouterProvider router={router} fallbackElement={<p>loading..</p>} />;
 }
