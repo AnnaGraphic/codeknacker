@@ -1,13 +1,14 @@
 .content {
   text-align: left;
+  padding-left: 1rem;
+  padding-top: 1rem;
 }
-
 
 #root {
   flex: 1;
   background-color: var(--main-color-darker);
   height: 80vh;
-  padding: 1rem; /* optional: Fügt etwas Abstand zwischen dem Inhalt und dem Rand hinzu */
+  color: var(--light);
 }
 h1 {
   font-size: 2rem;
