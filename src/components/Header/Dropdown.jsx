@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import { dropdownLinks } from "../../data/dropdown.js";
 import BurgerSvg from "../../assets/burger.svg";
+import { useUserContext } from "../../contexts/UserContext";
 
 export function Dropdown({ open, handleOpen }) {
+  const { dispatch } = useUserContext();
+
   return (
     <div className="dropdown">
       <button className="burger-menu" onClick={handleOpen}>
@@ -19,9 +22,17 @@ export function Dropdown({ open, handleOpen }) {
                 </Link>
               );
             })}
+            <Link to='/'>
+              <button className="logoutButton" onClick={() =>
+                dispatch({
+                  type: "logout",
+                })
+              }>logout</button>
+            </Link>
           </ul>
         </div>
       )}
     </div>
   );
 }
+
