@@ -4,7 +4,8 @@ import BurgerSvg from "../../assets/burger.svg";
 import { useUserContext } from "../../contexts/UserContext";
 
 export function Dropdown({ open, handleOpen }) {
-  const { dispatch } = useUserContext();
+  const { dispatch, userState } = useUserContext();
+  const { isLoggedIn } = userState;
 
   return (
     <div className="dropdown">
@@ -22,13 +23,13 @@ export function Dropdown({ open, handleOpen }) {
                 </Link>
               );
             })}
-            <Link to='/'>
+            { isLoggedIn && (<Link to='/'>
               <button className="logoutButton" onClick={() =>
                 dispatch({
                   type: "logout",
                 })
               }>logout</button>
-            </Link>
+            </Link> )}
           </ul>
         </div>
       )}
