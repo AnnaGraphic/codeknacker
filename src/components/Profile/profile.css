@@ -94,13 +94,7 @@
   }
 }
 
-@media (orientation: landscape) {
-  body {
-    flex-direction: row;
-  }
-}
-
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1024px) and (device-width: 1024px) and (-webkit-device-pixel-ratio:1.25) {
   .profile {
     padding: 0.02rem;
     display: flex;
@@ -108,11 +102,13 @@
     align-items: center;
     margin: 0 auto;
   }
+
   .profilePic {
     width: 10%;
     margin-left: 5rem;
     margin-top: 3rem;
   }
+
   .profile .profilePic img {
     width: 100%;
     height: 100%;
