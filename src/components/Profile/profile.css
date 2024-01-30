@@ -4,6 +4,8 @@
   text-align: center;
   padding: 1.25rem;
   flex-direction: column;
+  color: var(--light);
+  font-size: 1rem;
 }
 
 .profile .profilePic {
@@ -24,22 +26,22 @@
 
 .profile .profileInfo input,
 .profileInfo button {
- width : 100%;
+  width: 100%;
 }
 
-.profileInfo label{
+.profileInfo label {
   margin-bottom: 0.625rem;
 }
- 
+
 .profileInfo input {
   width: 80%;
-  padding: 1.25rem;
+  padding: 1em;
   border: 1px solid #ccc;
   border-radius: 0.25em;
   font-size: 1rem;
 }
 
- .profileInfo button {
+.profileInfo button {
   width: 80%;
   padding: 1.25rem;
   border-radius: 0.25rem;
