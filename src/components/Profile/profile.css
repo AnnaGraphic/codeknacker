@@ -94,14 +94,35 @@
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media (orientation: landscape) {
+  body {
+    flex-direction: row;
+  }
+}
 
+@media screen and (max-width: 1024px) {
+  .profile {
+    padding: 0.02rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 auto;
+  }
   .profilePic {
-    width: 60%;
+    width: 10%;
+    margin-left: 5rem;
+    margin-top: 3rem;
+  }
+  .profile .profilePic img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
   }
 
   .profileInfo {
-    margin-top: 0.625rem;
+    padding: 0.3rem;
+    width: 90%;
   }
 
   .profileInfo p {
