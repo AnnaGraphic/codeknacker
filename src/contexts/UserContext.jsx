@@ -51,6 +51,14 @@ function UserReducer(state, action) {
         username: action.value.username,
         password: action.value.password,
       }
+
+      case "setScore":
+        console.log(action.value)
+        return {
+          ...state,
+          score: action.value
+        }
+        
     default:
       break;
   }

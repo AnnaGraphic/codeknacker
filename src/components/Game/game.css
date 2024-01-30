@@ -1,13 +1,13 @@
 .content {
   text-align: left;
-}
-
-main {
+  padding-left: 1rem;
+  padding-top: 1rem;
   flex: 1;
   background-color: var(--main-color-darker);
-  height: 100vh;
-  padding: 1rem; /* optional: Fügt etwas Abstand zwischen dem Inhalt und dem Rand hinzu */
+  height: 80vh;
+  color: var(--light);
 }
+
 h1 {
   font-size: 2rem;
   margin-bottom: 1rem;
