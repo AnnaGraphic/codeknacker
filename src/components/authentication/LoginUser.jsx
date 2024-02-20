@@ -1,11 +1,17 @@
 export async function LoginUser({ username, password }) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (username === "Harry" && password === "123") {
-        resolve();
+  console.log('login')
+  return fetch('http://localhost:3000/api/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ username, password })
+    })
+    .then((response) => {
+      if (response.status === 200) {
+        // yay!
       } else {
-        reject();
+        this.setState({error: 'pwd or username incorrect'})
       }
-    }, 1000);
-  });
+    })
 }
