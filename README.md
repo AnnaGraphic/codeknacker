@@ -31,11 +31,11 @@ Click [👉 here](https://annagraphic.github.io/codeknacker) for the game.
   - [X] after login: go to game
 - [X] contexts:
   - [x] change loginReducer to userReducer
-- [ ] add intro to README
+- [X] add intro to README
 - [X] deployment
 ## next steps:
- [🐼] database
-
+  - [🐼] database
+  - [ ] connect to backend
 ## Spielablaufplan
 
 ### Startseite
