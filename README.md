@@ -10,6 +10,8 @@ Click [👉 here](https://annagraphic.github.io/codeknacker) for the game.
   - [X] Header
     - [X] Navigation (e.g. Dropdon)
       - [X] add logout
+  - Logout
+    - [ ] debug logout button in dropdown
   - [X] Login
     -[X] loading spinner
     -[X]focus
