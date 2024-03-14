@@ -6,9 +6,8 @@ export async function logout() {
         },
       })
       .then((response) => {
-        if (response.status === 200) {
-          // yay!
-          // TODO: handle success
+        if (response.ok) {
+          return response;
         } else {
           throw new Error('something went wrong');
         }
