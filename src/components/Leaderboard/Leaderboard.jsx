@@ -1,14 +1,22 @@
 import { useState, useEffect } from 'react';
 import './leaderboard.css';
-import { players } from '../../data/leaderboardDummyData';
-
+import { getTopTen } from './getTopTen.js';
+ 
 export function Leaderboard() {
   const [leaderboardData, setLeaderboardData] = useState([]);
 
   useEffect(() => {
-    const data = players.sort(function(a, b){return b.points - a.points}).slice(0, 10);
-    setLeaderboardData(data);
-    console.log(data)
+    async function fetchData() {
+     try {
+      const data = await getTopTen();
+      //console.log(data);
+      const sortedData = data.sort((a, b) => b.points - a.points).slice(0, 10);
+      setLeaderboardData(sortedData);
+     } catch (error) {
+        console.error(error?.message);
+      }
+    }
+    fetchData();
   }, []);
 
   return (
@@ -26,8 +34,8 @@ export function Leaderboard() {
           {leaderboardData.map((player, index) => (
             <tr key={player.id}>
               <td>{index + 1}</td>
-              <td>{player.name}</td>
-              <td>{player.points}</td>
+              <td>{player?.username}</td>
+              <td>{player?.score}</td>
             </tr>
           ))}
         </tbody>

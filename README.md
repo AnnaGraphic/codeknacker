@@ -22,7 +22,7 @@ Click [👉 here](https://annagraphic.github.io/codeknacker) for the game.
     - [ ] upload function for profile pic
     - [ ] change username to display name
   - [X] Leaderboard
-      - [ ] replace dummy data
+      - [X] replace dummy data
 - [X] Browser Router
 - [X] index.css
   - [X] find colors
