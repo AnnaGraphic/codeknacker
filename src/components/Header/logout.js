@@ -4,6 +4,7 @@ export async function logout() {
         headers: {
           'Content-Type': 'application/json'
         },
+        credentials: 'include',
       })
       .then((response) => {
         if (response.ok) {
