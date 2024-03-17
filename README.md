@@ -10,6 +10,7 @@ Click [👉 here](https://annagraphic.github.io/codeknacker) for the game.
   - [X] Header
     - [X] Navigation (e.g. Dropdon)
       - [X] add logout
+  - [ ] error display for user
   - Logout
     - [X] debug logout button in dropdown
   - [X] Login
@@ -35,6 +36,8 @@ Click [👉 here](https://annagraphic.github.io/codeknacker) for the game.
   - [x] change loginReducer to userReducer
 - [X] add intro to README
 - [X] deployment
+- error handling
+
 ## next steps:
   - [🐼] database
   - [ ] connect to backend
