@@ -68,6 +68,7 @@ function UserReducer(state, action) {
 
 const initialState = {
   username: "",
+  avatar: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Donkey_in_Clovelly%2C_North_Devon%2C_England.jpg",
   password: "",
   isLoading: false,
   isLoggedIn: false,
