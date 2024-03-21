@@ -3,7 +3,8 @@ export async function getTopTen() {
   try {
     const respone = await fetch(`${baseUrl}leaderboard`);
     const topTen = await respone.json();
-    return topTen;
+    const topTenSorted = [...topTen].sort((a, b) => b.points - a.points).slice(0, 10);
+    return topTenSorted;
   } catch (error) {
     throw new Error('Something went wrong' + error.message);
   }

@@ -1,23 +1,9 @@
-import { useState, useEffect } from 'react';
 import './leaderboard.css';
-import { getTopTen } from './getTopTen.js';
+import { useLoaderData } from 'react-router-dom';
  
 export function Leaderboard() {
-  const [leaderboardData, setLeaderboardData] = useState([]);
-
-  useEffect(() => {
-    async function fetchData() {
-     try {
-      const data = await getTopTen();
-      //console.log(data);
-      const sortedData = data.sort((a, b) => b.points - a.points).slice(0, 10);
-      setLeaderboardData(sortedData);
-     } catch (error) {
-        console.error(error?.message);
-      }
-    }
-    fetchData();
-  }, []);
+  // load data from loader before rendering:
+  const leaderboardData = useLoaderData();
 
   return (
     <div className='leaderboardContainer'>

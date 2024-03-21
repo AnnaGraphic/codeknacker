@@ -14,6 +14,7 @@ import Login from "./components/authentication/Login";
 import { Profile } from "./components/Profile/Profile.jsx";
 import { useUserContext } from "./contexts/UserContext.jsx";
 import Start from "./components/Start/Start";
+import { getTopTen } from "./components/Leaderboard/getTopTen.js";
 
 function App() {
   const { userState } = useUserContext();
@@ -35,6 +36,10 @@ function App() {
         {
           path: "leaderboard",
           element: <Leaderboard />,
+          //vs useEffect
+          loader: async () => {
+            return getTopTen();
+          }
         },
         {
           path: `profile`,
