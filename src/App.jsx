@@ -6,6 +6,7 @@ import {
   Navigate,
   Routes,
   Route,
+  redirect,
 } from "react-router-dom";
 import Game from "./components/Game/Game";
 import { Layout } from "./components/Layout/Layout.jsx";
@@ -44,6 +45,11 @@ function App() {
         {
           path: `profile`,
           element: isLoggedIn ? <Profile /> : <Login />,
+        },
+        {
+          //TODO: implement redirect in component
+          path: "login",
+          element: <Login/>,
         },
         {
           path: "*",
