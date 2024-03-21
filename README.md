@@ -11,11 +11,13 @@ Click [👉 here](https://annagraphic.github.io/codeknacker) for the game.
     - [X] Navigation (e.g. Dropdon)
       - [X] add logout
   - [ ] error display for user
+  - [ ] Register: add email
   - Logout
     - [X] debug logout button in dropdown
   - [X] Login
     -[X] loading spinner
     -[X]focus
+    - [ ] reset password
   - [ M ] Game
     - [X] update score in userContext
   - [X] Profile
