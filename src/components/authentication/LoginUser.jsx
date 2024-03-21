@@ -1,5 +1,7 @@
+const baseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000/api/';
+
 export async function LoginUser({ username, password }) {
-  const response = await fetch('http://localhost:3000/api/login', {
+  const response = await fetch(`${baseUrl}login/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
