@@ -1,7 +1,6 @@
 # 👾🙄🤷 codeknacker ⌨️🤔🤷🏿‍♀️
 Welcome to **codeknacker**, a game developed with JavaScript, [React](https://react.dev) for dynamic user interfaces and [Vite](https://vitejs.dev) for lightning-fast development.  
 Click [👉 here](https://annagraphic.github.io/codeknacker) for the game.  
-*Psst! Because it's you, here are the credentials: user: 'Harry', pwd: '123'* 😸
 
 ## TODOs
 
