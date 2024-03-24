@@ -26,20 +26,21 @@ export function Profile() {
     });
   };
 
-  const handleAvatarChange = (e) => {
+  const handleChangeAvatar = (e) => {
     const avatar = e.target.files[0];
     setInputAvatar(avatar);
   };
 
-  const handleChangePic = async (e) => {
+  const handleSaveAvatar = async (e) => {
     e.preventDefault();
     try {
-      let formData = new FormData();
-      //console.log(formData)
+      const formData = new FormData();
       formData.append("avatar", inputAvatar);
       const res = await fetch('http://localhost:3000/api/userupdate', {
         method: "PUT",
         body: formData,
+        /* multer requires: */
+        enctype: "multipart/form-data",
         credentials: "include",
       });
       if (res.ok) {
@@ -50,19 +51,20 @@ export function Profile() {
     } catch (error) {
       console.log(error);
     }
+    // return?
   };
 
   return (
     <div className="profile">
       <div className="profilePic"><img src={userState.avatar} alt="" /></div>
-      <button onClick={handleChangePic}>change pic</button>
+      <button onClick={handleSaveAvatar}>change pic</button>
             <div className="mb-3">
         <input
           className="form-control"
           type="file"
           accept="image/*"
           name="avatar"
-          onChange={handleAvatarChange}
+          onChange={handleChangeAvatar}
         />
       </div>
       <div className="profileInfo">
