@@ -58,7 +58,12 @@ function UserReducer(state, action) {
           ...state,
           score: action.value
         }
-        
+
+      case "setAvatar":
+        return {
+          ...state,
+          avatar: action.value
+        }
     default:
       break;
   }

@@ -24,7 +24,7 @@ Click [👉 here](https://annagraphic.github.io/codeknacker) for the game.
     - [X] update score in userContext
   - [X] Profile
     - [X] change dummy data to userContext
-    - [ ] upload function for profile pic
+    - [X] upload function for profile pic
     - [ ] change username to display name
   - [X] Leaderboard
       - [X] replace dummy data
