@@ -12,6 +12,8 @@ Click [👉 here](https://annagraphic.github.io/codeknacker) for the game.
       - [X] add logout
   - [ ] error display for user
   - [ ] Register: add email
+  - [ ] Register: add avatar
+  - [ ] ResetPassword
   - Logout
     - [X] debug logout button in dropdown
   - [X] Login
@@ -36,6 +38,7 @@ Click [👉 here](https://annagraphic.github.io/codeknacker) for the game.
   - [X] after login: go to game
 - [X] contexts:
   - [x] change loginReducer to userReducer
+  - [ ] UserContext: fetch from db
 - [X] add intro to README
 - [X] deployment
 - error handling
