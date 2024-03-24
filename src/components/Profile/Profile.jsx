@@ -44,9 +44,20 @@ export function Profile() {
         credentials: "include",
       });
       if (res.ok) {
-        console.log("success");
-      //  dispatch avatar to usercontext
-      console.log(userState.avatar);
+        try {
+        const data = await res.json();
+          if (data && data.secure_url) {
+            const avatar = data.secure_url;
+            dispatch({
+              type: "setAvatar",
+              value: avatar,
+            });
+          }
+        } catch (error) {
+          console.log('error parsing response', error);
+        }
+      } else {
+          console.log("error uploading avatar", res.statusText);
       }
     } catch (error) {
       console.log(error);
