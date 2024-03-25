@@ -10,8 +10,9 @@ Click [👉 here](https://annagraphic.github.io/codeknacker) for the game.
     - [X] Navigation (e.g. Dropdon)
       - [X] add logout
   - [ ] error display for user
-  - [ ] Register: add email
+  - [X] Register: add email
   - [ ] Register: add avatar
+    - [ ] Register: 🎨 check css
   - [ ] ResetPassword
   - Logout
     - [X] debug logout button in dropdown

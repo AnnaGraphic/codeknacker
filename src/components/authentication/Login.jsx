@@ -2,6 +2,7 @@ import {ClipLoader} from 'react-spinners';
 import { useEffect, useRef } from 'react';
 import { LoginUser } from "./LoginUser";
 import { useUserContext } from "../../contexts/UserContext";
+import { Link } from "react-router-dom";
 import "./login.css";
 
 // login component
@@ -85,6 +86,7 @@ function Login() {
             <button className="submit" type="submit" disabled={isLoading}>
               {isLoading ? "Logging in..." : "Log in"}
             </button>
+            <Link to="/register">no account yet? 👉 set up here.</Link>
           </form>
         )}
       </div>

@@ -13,9 +13,10 @@ import { Layout } from "./components/Layout/Layout.jsx";
 import { Leaderboard } from "./components/Leaderboard/Leaderboard.jsx";
 import Login from "./components/authentication/Login";
 import { Profile } from "./components/Profile/Profile.jsx";
-import { useUserContext } from "./contexts/UserContext.jsx";
 import Start from "./components/Start/Start";
+import { Register } from "./components/authentication/Register";
 import { getTopTen } from "./components/Leaderboard/getTopTen.js";
+import { useUserContext } from "./contexts/UserContext.jsx";
 
 function App() {
   const { userState } = useUserContext();
@@ -41,6 +42,10 @@ function App() {
           loader: async () => {
             return getTopTen();
           }
+        },
+        {
+          path: "register/",
+          element: <Register />
         },
         {
           path: `profile`,
