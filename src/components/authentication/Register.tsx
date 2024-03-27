@@ -1,19 +1,23 @@
 import "./register.css";
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import { useUserContext } from "../../contexts/UserContext";
 import { registerUser } from './registerUser.ts';
 import { Link } from "react-router-dom";
 
 export function Register() {
   const { userState, dispatch } = useUserContext();
-  const { email, password, username, error } = userState;
+  const { error } = userState;
+
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    
     try {
       await registerUser({ email, password, username });
-      // TODO: redirect
+      // redirect
+      dispatch({ type: "success" });
     } catch (error) {
       // TODO: more specific error handling
       dispatch({
@@ -33,17 +37,17 @@ export function Register() {
         <input
           type="email"
           placeholder="eMail"
-          onChange={(e) => (e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
         />
           <input
           type="username"
           placeholder="choose a username"
-          onChange={(e) => (e.target.value)}
+          onChange={(e) => setUsername(e.target.value)}
         />
         <input
           type="password"
           placeholder="choose a password with 8 characters or more"
-          onChange={(e) => (e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <button className="submit" type="submit">Register</button>
       <Link to="/login">already have an account? 👉 login here.</Link>
